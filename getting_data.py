@@ -17,46 +17,73 @@ driver = webdriver.Chrome(
 
 
 # LOOP
-for day in range(date_day, 32):
-    if date_month < 10:
-        if day < 10:
-            url = main_url + str(date_year) + "-0" + \
-                str(date_month) + "-0" + str(day)
+file = open("output.txt", "a")
+# file.write("Points from 01-06-2021 to 12-31-2022\n")
+for year in range(2021, 2022):
+    for month in range(5, 13):
+        if month == 1 or month == 3 or month == 5 or month == 7 or month == 8 or month == 10 or month == 12:
+            days_in_month = 31
+        elif month == 2:
+            days_in_month = 28
         else:
-            url = main_url + str(date_year) + "-0" + \
-                str(date_month) + "-" + str(day)
-    else:
-        if day < 10:
-            url = main_url + str(date_year) + "-" + \
-                str(date_month) + "-0" + str(day)
-        else:
-            url = main_url + str(date_year) + "-" + \
-                str(date_month) + "-" + str(day)
-    driver.get(url)
-    time.sleep(2)
-    htmlSource = driver.page_source
-    soup = BeautifulSoup(htmlSource, "html.parser")
+            days_in_month = 30
+        for day in range(1, days_in_month + 1):
+            if month < 10:
+                if day < 10:
+                    url = main_url + str(year) + "-0" + \
+                        str(month) + "-0" + str(day)
+                else:
+                    url = main_url + str(year) + "-0" + \
+                        str(month) + "-" + str(day)
+            else:
+                if day < 10:
+                    url = main_url + str(year) + "-" + \
+                        str(month) + "-0" + str(day)
+                else:
+                    url = main_url + str(year) + "-" + \
+                        str(month) + "-" + str(day)
+            driver.get(url)
+            time.sleep(2)
 
-    results = soup.find(id="odds-app")
+            # scrolling implementation credit:
+            # https://medium.com/analytics-vidhya/using-python-and-selenium-to-scrape-infinite-scroll-web-pages-825d12c24ec7
+            scrolling_wait = 1
+            website_height = driver.execute_script(
+                "return window.screen.height;")
+            i = 1
+            keep_scrolling = True
+            while keep_scrolling:
+                driver.execute_script(
+                    "window.scrollTo(0, {screen_height}*{i});".format(screen_height=website_height, i=i))
+                i += 1
+                time.sleep(scrolling_wait)
+                scroll_height = driver.execute_script(
+                    "return document.body.scrollHeight;")
+                if website_height * i > scroll_height:
+                    keep_scrolling = False
 
-    prop_list = []
-    players = results.find_all(
-        "div", class_="grouped-items-with-sticky-footer__content")
-    for player in players:
-        player_name = player.find("a", class_="odds-player__heading")
-        line = player.find("span", class_="odds-cell__line")
-        odds = player.find("span", class_="odds-cell__cost")
-        prop_list.append(
-            (player_name.text.strip(), line.text.strip(), odds.text.strip()))
+            htmlSource = driver.page_source
+            soup = BeautifulSoup(htmlSource, "html.parser")
 
-    # print(prop_list)
-    file = open("output.txt", "a")
-    date_string = "Date: " + str(date_month) + "-" + \
-        str(day) + "-" + str(date_year) + "\n"
-    file.write(date_string)
-    for line in prop_list:
-        line_string = "Player: " + line[0] + \
-            ", line: " + line[1] + ", odds: " + line[2] + "\n"
-        file.write(line_string)
-    file.write("\n")
+            results = soup.find(id="odds-app")
+
+            prop_list = []
+            players = results.find_all(
+                "div", class_="grouped-items-with-sticky-footer__content")
+            for player in players:
+                player_name = player.find("a", class_="odds-player__heading")
+                line = player.find("span", class_="odds-cell__line")
+                odds = player.find("span", class_="odds-cell__cost")
+                prop_list.append(
+                    (player_name.text.strip(), line.text.strip(), odds.text.strip()))
+
+            # print(prop_list)
+            date_string = "Date: " + str(month) + "-" + \
+                str(day) + "-" + str(year) + "\n"
+            file.write(date_string)
+            for line in prop_list:
+                line_string = "Player: " + line[0] + \
+                    ", line: " + line[1] + ", odds: " + line[2] + "\n"
+                file.write(line_string)
+            file.write("\n")
 file.close()
