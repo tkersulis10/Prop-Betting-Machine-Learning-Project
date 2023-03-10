@@ -15,8 +15,10 @@ date_year = 2021
 
 options = webdriver.ChromeOptions()
 options.add_argument('--headless')
+# different driver path per computer
+driver_paths = ['/home/tkersulis/cs4701/project/chromedriver.exe', "/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"]
 driver = webdriver.Chrome(
-    executable_path='/home/tkersulis/cs4701/project/chromedriver.exe', options=options)
+    executable_path=driver_paths[0], options=options)
 driver.set_page_load_timeout(30)
 
 # LOOP
