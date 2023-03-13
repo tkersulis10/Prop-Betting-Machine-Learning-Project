@@ -51,7 +51,7 @@ class Season:
     def __repr__(self):
         return str(self.__dict__)
     def getTeams(self):
-        for team_name in list(self.teams.keys())[:1]:
+        for team_name in list(self.teams.keys()):
             games_so_far = list(self.games.keys())
             team = Team(self.year, team_name)
             url = "https://www.basketball-reference.com/teams/" + team_name + "/" + str(self.year) + ".html"
@@ -282,5 +282,5 @@ with open('players.pkl', 'wb') as outp:
 #     players = pickle.load(inp)
 
 # example usage after loading:
-# example: trae young full stat line from first game of the 2020 season
-# print(players['TraeYoung2020ATL'].gamelog[0])
+# example: stephen curry full stat line from first game of the 2020 season
+# print(players['StephenCurry2020GSW'].gamelog[0])
