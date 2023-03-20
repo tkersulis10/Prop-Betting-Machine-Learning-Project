@@ -8,7 +8,9 @@ import pickle
 player_identifier_to_object = {}
 
 def make_request(url):
-    # bbref only lets you make max 20 requests per minute, otherwise it will block you
+    """
+    Make a request to the given URL after waiting for 3 seconds to avoid hitting the rate limit.
+    """
     time.sleep(3)
     return requests.get(url)
 
@@ -50,13 +52,15 @@ class Season:
         }
     def __repr__(self):
         return str(self.__dict__)
+    
     def getTeams(self):
         for team_name in list(self.teams.keys()):
             games_so_far = list(self.games.keys())
             team = Team(self.year, team_name)
             url = "https://www.basketball-reference.com/teams/" + team_name + "/" + str(self.year) + ".html"
             soup = BeautifulSoup(make_request(url).content, "html.parser")
-            # print(soup.prettify())
+
+            # Collect players data
             players = soup.find(id="div_roster").find("tbody").find_all("tr")
             for player in players:
                 bbref_player_link = player.find('a', href=True)
@@ -85,6 +89,7 @@ class Season:
             soup = BeautifulSoup(make_request(games_url).content, "html.parser")
             games = soup.find(id="div_games").find("tbody").find_all("tr")
             # print(len(games))
+            
             for game in games:
                 th = game.find("th")
                 if (th.get("scope") != "row"):
