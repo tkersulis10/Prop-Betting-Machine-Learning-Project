@@ -2,7 +2,6 @@ import time
 from bs4 import BeautifulSoup
 import requests
 from unidecode import unidecode
-import json
 import pickle
 
 player_identifier_to_object = {}
