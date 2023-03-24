@@ -1,4 +1,5 @@
 # getting points prop bet data starting from 01/06/2021
+# activate virtual environment before using: source venv/bin/activate on linux
 
 import time
 from selenium import webdriver
