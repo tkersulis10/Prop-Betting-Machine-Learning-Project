@@ -74,7 +74,7 @@ with open('players.pkl', 'rb') as inp:
 # Create a list of players' gamelogs and their names
 gamelog_list = []
 # Add each player's gamelog and name to the list
-# ...
+gamelog_list.append((players['StephenCurry2022GSW'].gamelog, "Stephen Curry"))
 
 for player, name in gamelog_list:
     # Process the player's gamelog to extract features, actual points, and feature values
@@ -86,6 +86,6 @@ for player, name in gamelog_list:
     output_string = name + " average predicted points: " + str(sum(final_prediction) / len(final_prediction))
     print(output_string)
 
-    # Write the output_string to the "reinforcement_learning_output.txt" file
-    with open("reinforcement_learning_output.txt", "a") as file:
+    # Write the output_string to the "updated_rl.txt" file
+    with open("updated_rl.txt", "a") as file:
         file.write(output_string + "\n")
