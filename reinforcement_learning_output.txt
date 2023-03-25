@@ -1,0 +1,17 @@
+Stephen Curry average predicted points: 27.6665785314617
+Andrew Wiggins average predicted points: 16.806341575409114
+Jordan Poole average predicted points: 30.481740199762584
+Klay Thompson average predicted points: 44.94787437460077
+Draymond Green average predicted points: 8.76715175690224
+Otto Porter Jr. average predicted points: 1.4795890033355426
+Kevon Looney average predicted points: 2.4389131107192754
+Damion Lee average predicted points: 7.916524836322007
+Andre Iguodala average predicted points: 1.5908154217613197
+Gary Payton II average predicted points: 7.493821509939733
+Jonathan Kuminga average predicted points: 13.457923585617717
+Nemanja Bjelica average predicted points: 8.345122336511846
+Juan Toscano-Anderson average predicted points: 2.588557547638847
+Moses Moody average predicted points: 2.5209270565129196
+Chris Chiozza average predicted points: 10.634462080387022
+Jeff Dowtin average predicted points: 0.0
+Quinndary Weathersoon average predicted points: 6368.480458934567
