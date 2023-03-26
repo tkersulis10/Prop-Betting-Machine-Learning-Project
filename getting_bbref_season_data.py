@@ -150,6 +150,17 @@ class Season:
                 for stat in stats:
                     advanced_stats.append(stat.get("data-stat"))
 
+                team_box_score = {}
+                tfoot_row = basic_stats_table.find("tfoot").find("tr")
+                team_basic_stats = tfoot_row.find_all("td")
+                for i, stat_value in enumerate(team_basic_stats):
+                    team_box_score[basic_stats[i]] = stat_value.getText()
+
+                tfoot_row = advanced_stats_table.find("tfoot").find("tr")
+                team_advanced_stats = tfoot_row.find_all("td")
+                for i, stat_value in enumerate(team_advanced_stats):
+                    team_box_score[advanced_stats[i]] = stat_value.getText()
+
                 tbody_rows = advanced_stats_table.find("tbody").find_all("tr")
 
                 starters = tbody_rows[:5]
@@ -192,6 +203,7 @@ class Season:
                     current_game.home_reserves = reserve_bbrefs
                     current_game.home_starters = starter_bbrefs
                     current_game.home_player_stats = box_score
+                    current_game.home_team_stats = team_box_score
                 else:
                     current_game.away_team = team_name
                     current_game.away_team_game_no = game_no
@@ -199,6 +211,7 @@ class Season:
                     current_game.away_reserves = reserve_bbrefs
                     current_game.away_starters = starter_bbrefs
                     current_game.away_player_stats = box_score
+                    current_game.away_team_stats = team_box_score
 
                 self.games[game_id] = current_game
                 team.games.append(current_game)
@@ -235,6 +248,8 @@ class Game:
         self.away_inactives = []
         self.home_player_stats = {}
         self.away_player_stats = {}
+        self.home_team_stats = {}
+        self.away_team_stats = {}
     def __repr__(self):
         return str(self.__dict__)
 
@@ -254,30 +269,30 @@ class Player:
     def __repr__(self):
         return str(self.__dict__)
 
-# To get a season's data
-s2020 = Season(2020)
-s2020.getTeams()
-# To save objects to a file
-with open('s2020.pkl', 'wb') as outp:
-    pickle.dump(s2020, outp, pickle.HIGHEST_PROTOCOL)
+# # To get a season's data
+# s2020 = Season(2020)
+# s2020.getTeams()
+# # To save objects to a file
+# with open('s2020.pkl', 'wb') as outp:
+#     pickle.dump(s2020, outp, pickle.HIGHEST_PROTOCOL)
 
-s2021 = Season(2021)
-s2021.getTeams()
-with open('s2021.pkl', 'wb') as outp:
-    pickle.dump(s2021, outp, pickle.HIGHEST_PROTOCOL)
+# s2021 = Season(2021)
+# s2021.getTeams()
+# with open('s2021.pkl', 'wb') as outp:
+#     pickle.dump(s2021, outp, pickle.HIGHEST_PROTOCOL)
 
-s2022 = Season(2022)
-s2022.getTeams()
-with open('s2022.pkl', 'wb') as outp:
-    pickle.dump(s2022, outp, pickle.HIGHEST_PROTOCOL)
+# s2022 = Season(2022)
+# s2022.getTeams()
+# with open('s2022.pkl', 'wb') as outp:
+#     pickle.dump(s2022, outp, pickle.HIGHEST_PROTOCOL)
 
-s2023 = Season(2023)
-s2023.getTeams()
-with open('s2023.pkl', 'wb') as outp:
-    pickle.dump(s2023, outp, pickle.HIGHEST_PROTOCOL)
+# s2023 = Season(2023)
+# s2023.getTeams()
+# with open('s2023.pkl', 'wb') as outp:
+#     pickle.dump(s2023, outp, pickle.HIGHEST_PROTOCOL)
 
-with open('players.pkl', 'wb') as outp:
-    pickle.dump(player_identifier_to_object, outp, pickle.HIGHEST_PROTOCOL)
+# with open('players.pkl', 'wb') as outp:
+#     pickle.dump(player_identifier_to_object, outp, pickle.HIGHEST_PROTOCOL)
 
 # To load objects from file:
 # with open('s2020.pkl', 'rb') as inp:
