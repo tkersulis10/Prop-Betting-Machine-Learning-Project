@@ -1,34 +1,34 @@
-Stephen Curry average predicted points: 26.18089939578571
+Stephen Curry average predicted points: 26.008162700161414
 Stephen Curry actual average points: 21.4
-Andrew Wiggins average predicted points: 14.757303515743882
+Andrew Wiggins average predicted points: 14.826963196965483
 Andrew Wiggins actual average points: 18.6
-Jordan Poole average predicted points: 28.61396577313393
+Jordan Poole average predicted points: 27.853804410862487
 Jordan Poole actual average points: 22.4
-Klay Thompson average predicted points: 32.115751502382324
+Klay Thompson average predicted points: 29.72789035041985
 Klay Thompson actual average points: 29.6
-Draymond Green average predicted points: 6.739504515695335
+Draymond Green average predicted points: 6.256368926092586
 Draymond Green actual average points: 9.0
-Otto Porter Jr. average predicted points: 7.92347035478038
+Otto Porter Jr. average predicted points: 8.09207032208261
 Otto Porter Jr. actual average points: 7.4
-Kevon Looney average predicted points: 3.963463843562644
+Kevon Looney average predicted points: 4.264234852917765
 Kevon Looney actual average points: 3.2
-Damion Lee average predicted points: 7.010145017246901
+Damion Lee average predicted points: 7.000357341256153
 Damion Lee actual average points: 6.4
-Andre Iguodala average predicted points: 0.7838054892103038
+Andre Iguodala average predicted points: 1.530012044004182
 Andre Iguodala actual average points: 3.4
-Gary Payton II average predicted points: 7.109928308094377
+Gary Payton II average predicted points: 7.178323940233808
 Gary Payton II actual average points: 7.2
-Jonathan Kuminga average predicted points: 8.604307619403446
+Jonathan Kuminga average predicted points: 9.062954015209883
 Jonathan Kuminga actual average points: 11.8
-Nemanja Bjelica average predicted points: 6.326968089807179
+Nemanja Bjelica average predicted points: 6.077469712430604
 Nemanja Bjelica actual average points: 9.4
-Juan Toscano-Anderson average predicted points: 2.113669657573319
+Juan Toscano-Anderson average predicted points: 2.178465316745529
 Juan Toscano-Anderson actual average points: 2.8
-Moses Moody average predicted points: 2.088939600699468
+Moses Moody average predicted points: 2.6481366618732047
 Moses Moody actual average points: 5.8
-Chris Chiozza average predicted points: 0.2690687319650666
+Chris Chiozza average predicted points: 0.6913397743787605
 Chris Chiozza actual average points: 1.6
 Jeff Dowtin average predicted points: 0.0
 Jeff Dowtin actual average points: 0.4
-Quinndary Weathersoon average predicted points: 13.980362917941026
+Quinndary Weathersoon average predicted points: 21.365968377196836
 Quinndary Weathersoon actual average points: 1.0

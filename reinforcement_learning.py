@@ -39,6 +39,10 @@ gamelog_list.append((players['QuinndaryWeatherspoon2022GSW'], "Quinndary Weather
 for player_var, name in gamelog_list:
     player = player_var.gamelog
     team_games = player_var.team.games
+    team_roster = []
+    for team_member in player_var.team.players:
+        team_roster.append(team_member.bbref_name)
+    roster_size = len(team_roster)
     game_count = 0
     while type(player[game_count]) == str:
         game_count += 1
@@ -58,8 +62,14 @@ for player_var, name in gamelog_list:
                 home = False
             if home == True:
                 team_stats = team_games[i].away_team_stats
+                team_inactives = team_games[i].home_inactives # GSW own inactives
             else:
                 team_stats = team_games[i].home_team_stats
+                team_inactives = team_games[i].away_inactives # GSW own inactives
+            inactives_features = [0] * roster_size
+            for team_member in range(roster_size):
+                if team_roster[team_member] in team_inactives:
+                    inactives_features[team_member] = 1 # set to 1 if player inactive
             opp_team_stat_list = list(team_stats.values())
             opp_team_features = [0] * 35
             for game_num in range(len(opp_team_stat_list)):
@@ -92,7 +102,7 @@ for player_var, name in gamelog_list:
                     value = value[1:]
                 feature_values_floats[games_so_far - 1].append(float(value))
             feature_values_floats[games_so_far - 1] += opp_team_features
-            # print(feature_values_floats[games_so_far - 1])
+            feature_values_floats[games_so_far - 1] += inactives_features
     num_features= len(feature_values_floats[0])
     weights = [0] * num_features
     #initial_prediction = 0
