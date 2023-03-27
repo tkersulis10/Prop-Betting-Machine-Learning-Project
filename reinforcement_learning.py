@@ -1,34 +1,11 @@
 import pickle
+import random
 from getting_bbref_season_data import Player
 from getting_bbref_season_data import Season
 from getting_bbref_season_data import Team
 from getting_bbref_season_data import Game
 
-with open('s2020.pkl', 'rb') as inp:
-    s2020 = pickle.load(inp)
-with open('players.pkl', 'rb') as inp:
-    players = pickle.load(inp)
-
-gamelog_list = []
-gamelog_list.append(players['StephenCurry2022GSW'])
-gamelog_list.append(players['AndrewWiggins2022GSW'])
-gamelog_list.append(players['JordanPoole2022GSW'])
-gamelog_list.append(players['KlayThompson2022GSW'])
-gamelog_list.append(players['DraymondGreen2022GSW'])
-gamelog_list.append(players['OttoPorterJr.2022GSW'])
-gamelog_list.append(players['KevonLooney2022GSW'])
-gamelog_list.append(players['DamionLee2022GSW'])
-gamelog_list.append(players['AndreIguodala2022GSW'])
-gamelog_list.append(players['GaryPaytonII2022GSW'])
-gamelog_list.append(players['JonathanKuminga2022GSW'])
-gamelog_list.append(players['NemanjaBjelica2022GSW'])
-gamelog_list.append(players['JuanToscano-Anderson2022GSW'])
-gamelog_list.append(players['MosesMoody2022GSW'])
-gamelog_list.append(players['ChrisChiozza2022GSW'])
-gamelog_list.append(players['JeffDowtin2022GSW'])
-gamelog_list.append(players['QuinndaryWeatherspoon2022GSW'])
-
-def train_players(player_list):
+def train_players(player_list, alpha_divider):
     """
     Train players in player_list.
     """
@@ -117,10 +94,10 @@ def train_players(player_list):
         weights = [0] * num_features
 
         # Initialize hyperparameters
-        alpha = 1 / (num_games * num_features * 100) # learning rate
+        alpha = 1 / (num_games * num_features * alpha_divider) # learning rate
 
-        # Train weights on first (num_games - 5) games of the player's season
-        for game in range(num_games - 5):
+        # Train weights on first (num_games - 10) games of the player's season
+        for game in range(num_games - 10):
             prediction = 0
             for feature in range(num_features):
                 prediction += feature_values[game][feature] * weights[feature]
@@ -133,14 +110,17 @@ def train_players(player_list):
     # Return dictionary of each player's features, weights, and actual points
     return player_feature_dict
 
+def evaluate_players(player_feature_dict, start_games_from_end, end_games_from_end):
+    """
+    Evaluates the predicted points scored for each player in player_feature_dict
+    versus their actual points scored from (including) start_games_from_end
+    from the end to (excluding) end_games_from_end from the end.
 
-def test_players(player_feature_dict):
+    Example: If player played 70 games in the season and you want to evaluate
+    the player's last 10 games (indexes 60 - 69), start_games_from_end = 10
+    and end_games_from_end = 0.
     """
-    Test features and weights in feature_values on all of the players in
-    player_list. Tests on each player's last 5 games of the season and outputs
-    the model's predicted points vs player's actual points for the last 5
-    games of the player's season.
-    """
+    results = {}
     for player in player_feature_dict.keys():
         # Initialize needed variables
         num_games = len(player_feature_dict[player][0])
@@ -148,21 +128,108 @@ def test_players(player_feature_dict):
         weights = player_feature_dict[player][1]
         actual_points = player_feature_dict[player][2]
         num_features = len(feature_values[0])
+        num_evaluation_games = start_games_from_end - end_games_from_end
+        start_game = num_games - start_games_from_end
+        end_game = num_games - end_games_from_end
 
-        # Get prediction for points for each of the last 5 games
-        final_prediction = [0] * 5
+        # Get prediction for points for each of the specified games
+        final_prediction = [0] * num_evaluation_games
         count = 0
-        for game in range(num_games - 5, num_games):
+        for game in range(start_game, end_game):
             for feature in range(num_features):
                 final_prediction[count] += feature_values[game][feature] * weights[feature]
             count += 1
 
+        # Compute the predicted vs average points and add to result dict
+        predicted = sum(final_prediction) / num_evaluation_games
+        actual = sum(actual_points[start_game: end_game]) / num_evaluation_games
+        results[player] = (predicted, actual)
+
+    return results
+
+def validation(player_list, random_tests):
+    """
+    Randomly test different learning rates and initial weights to find and
+    return the best performing hyperparameters based on least squares on
+    player_list. Tests each hyperparameter on random_tests number of random
+    values.
+    """
+    # Generate random number for the divider of alpha (learning rate)
+    random_dividers = []
+    for i in range(random_tests):
+        random_dividers.append(random.randint(1, 500))
+
+    # Find the most accurate divider
+    best_divider = 1
+    best_divider_lss = float('inf')
+    for divider in random_dividers:
+        # Train model using divider
+        player_feature_dict = train_players(player_list, divider)
+
+        # Evaluate model using divider
+        results = evaluate_players(player_feature_dict, 10, 5)
+
+        # Check if this divider is the best one so far using least squares sum
+        ls_sum = 0
+        for player in results.keys():
+            ls_sum += abs(results[player][0] - results[player][1]) ** 2
+        
+        if ls_sum < best_divider_lss:
+            best_divider = divider
+            best_divider_lss = ls_sum
+    
+    return best_divider
+
+def test_players(player_feature_dict):
+    """
+    Test features and weights in player_feature_dict for each player.
+    Tests on each player's last 5 games of the season and outputs
+    the model's predicted points vs player's actual points for the last 5
+    games of the player's season.
+    """
+    results = evaluate_players(player_feature_dict, 5, 0)
+
+    for player in results.keys():
         # Output the predicted vs average points and write to file
-        output_string1 = player + " average predicted points: " + str(sum(final_prediction) / len(final_prediction))
-        output_string2 = player + " actual average points: " + str(sum(actual_points[num_games - 5:]) / 5)
+        output_string1 = player + " average predicted points: " + str(results[player][0])
+        output_string2 = player + " actual average points: " + str(results[player][1])
         with open("reinforcement_learning_output.txt", "a") as file:
             file.write(output_string1 + "\n")
             file.write(output_string2 + "\n")
 
-player_dict = train_players(gamelog_list)
+with open('s2022.pkl', 'rb') as inp:
+    s2022 = pickle.load(inp)
+with open('players.pkl', 'rb') as inp:
+    players = pickle.load(inp)
+
+gamelog_list = []
+gamelog_list.append(players['StephenCurry2022GSW'])
+gamelog_list.append(players['AndrewWiggins2022GSW'])
+gamelog_list.append(players['JordanPoole2022GSW'])
+gamelog_list.append(players['KlayThompson2022GSW'])
+gamelog_list.append(players['DraymondGreen2022GSW'])
+gamelog_list.append(players['OttoPorterJr.2022GSW'])
+gamelog_list.append(players['KevonLooney2022GSW'])
+gamelog_list.append(players['DamionLee2022GSW'])
+gamelog_list.append(players['AndreIguodala2022GSW'])
+gamelog_list.append(players['GaryPaytonII2022GSW'])
+gamelog_list.append(players['JonathanKuminga2022GSW'])
+gamelog_list.append(players['NemanjaBjelica2022GSW'])
+gamelog_list.append(players['JuanToscano-Anderson2022GSW'])
+gamelog_list.append(players['MosesMoody2022GSW'])
+gamelog_list.append(players['ChrisChiozza2022GSW'])
+
+# Too few games played
+# gamelog_list.append(players['JeffDowtin2022GSW'])
+# gamelog_list.append(players['QuinndaryWeatherspoon2022GSW'])
+
+# Find best alpha divider hyperparameter
+best_alpha = validation(gamelog_list, 20)
+with open("reinforcement_learning_output.txt", "a") as file:
+    file.write("Best divider found: " + str(best_alpha) + "\n")
+
+# Train model using best hyperparameter
+player_dict = train_players(gamelog_list, best_alpha)
+
+# Evaluate model
 test_players(player_dict)
