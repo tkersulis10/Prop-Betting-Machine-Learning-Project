@@ -30,5 +30,5 @@ Chris Chiozza average predicted points: 0.6913397743787605
 Chris Chiozza actual average points: 1.6
 Jeff Dowtin average predicted points: 0.0
 Jeff Dowtin actual average points: 0.4
-Quinndary Weathersoon average predicted points: 21.365968377196836
-Quinndary Weathersoon actual average points: 1.0
+Quinndary Weatherspoon average predicted points: 21.365968377196836
+Quinndary Weatherspoon actual average points: 1.0
