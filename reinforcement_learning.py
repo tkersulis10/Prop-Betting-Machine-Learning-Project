@@ -1,5 +1,6 @@
 import pickle
 import random
+import math
 from getting_bbref_season_data import Player
 from getting_bbref_season_data import Season
 from getting_bbref_season_data import Team
@@ -22,7 +23,7 @@ def convert_to_valid_value(value):
         value = value[1:]
     return float(value)
 
-def train_players(player_list, alpha_divider):
+def train_players(player_list, player_alpha_divider):
     """
     Trains and returns trained players in player_list. Only returns players
     that played at least 20 games this season.
@@ -93,7 +94,7 @@ def train_players(player_list, alpha_divider):
             weights = [0] * num_features
 
             # Initialize hyperparameters
-            alpha = 1 / (num_games * num_features * alpha_divider) # learning rate
+            player_alpha = 1 / (num_games * num_features * player_alpha_divider) # learning rate
 
             # Train weights on first (num_games - 10) games of the player's season
             for game in range(num_games - 10):
@@ -102,18 +103,19 @@ def train_players(player_list, alpha_divider):
                     prediction += feature_values[game][feature] * weights[feature]
                 difference = actual_points[game] - prediction
                 for weight in range(num_features):
-                    weights[weight] += alpha * difference * feature_values[game][weight]
+                    weights[weight] += player_alpha * difference * feature_values[game][weight]
 
             player_feature_dict[player_name] = (feature_values, weights, actual_points)
     
     # Return dictionary of each player's features, weights, and actual points
     return player_feature_dict
 
-def evaluate_players(player_feature_dict, start_games_from_end, end_games_from_end):
+def evaluate_players(player_feature_dict, start_games_from_end, end_games_from_end, step):
     """
     Evaluates the predicted points scored for each player in player_feature_dict
     versus their actual points scored from (including) start_games_from_end
-    from the end to (excluding) end_games_from_end from the end.
+    from the end to (excluding) end_games_from_end from the end by using every
+    step game.
 
     Example: If player played 70 games in the season and you want to evaluate
     the player's last 10 games (indexes 60 - 69), start_games_from_end = 10
@@ -127,21 +129,24 @@ def evaluate_players(player_feature_dict, start_games_from_end, end_games_from_e
         weights = player_feature_dict[player][1]
         actual_points = player_feature_dict[player][2]
         num_features = len(feature_values[0])
-        num_evaluation_games = start_games_from_end - end_games_from_end
+        num_evaluation_games = math.ceil((start_games_from_end - end_games_from_end) / 2)
+        print(num_evaluation_games)
         start_game = num_games - start_games_from_end
         end_game = num_games - end_games_from_end
 
         # Get prediction for points for each of the specified games
         final_prediction = [0] * num_evaluation_games
+        real_points = []
         count = 0
-        for game in range(start_game, end_game):
+        for game in range(start_game, end_game, step):
             for feature in range(num_features):
                 final_prediction[count] += feature_values[game][feature] * weights[feature]
+            real_points.append(actual_points[game])
             count += 1
 
         # Compute the predicted vs average points and add to result dict
         predicted = sum(final_prediction) / num_evaluation_games
-        actual = sum(actual_points[start_game: end_game]) / num_evaluation_games
+        actual = sum(real_points) / num_evaluation_games
         results[player] = (predicted, actual)
 
     return results
@@ -151,7 +156,8 @@ def validation(player_list, random_tests):
     Randomly test different learning rates and initial weights to find and
     return the best performing hyperparameters based on least squares on
     player_list. Tests each hyperparameter on random_tests number of random
-    values.
+    values. Validates on each players 10th, 8th, 6th, 4th, and 2nd last games
+    of the season.
     """
     # Generate random number for the divider of alpha (learning rate)
     random_dividers = []
@@ -166,7 +172,7 @@ def validation(player_list, random_tests):
         player_feature_dict = train_players(player_list, divider)
 
         # Evaluate model using divider
-        results = evaluate_players(player_feature_dict, 10, 5)
+        results = evaluate_players(player_feature_dict, 10, 0, 2)
 
         # Check if this divider is the best one so far using least squares sum
         ls_sum = 0
@@ -182,11 +188,11 @@ def validation(player_list, random_tests):
 def test_players(player_feature_dict):
     """
     Test features and weights in player_feature_dict for each player.
-    Tests on each player's last 5 games of the season and outputs
-    the model's predicted points vs player's actual points for the last 5
-    games of the player's season.
+    Tests on each player's 9th, 7th, 5th, 3rd and last games of the season
+    and outputs the model's predicted points vs player's actual points for
+    these games of the player's season.
     """
-    results = evaluate_players(player_feature_dict, 5, 0)
+    results = evaluate_players(player_feature_dict, 9, 0, 2)
 
     for player in results.keys():
         # Output the predicted vs average points and write to file
@@ -204,7 +210,6 @@ def get_opp_team_stats(team, learning_rate):
     """
     team_games = team.games
     team_name = team.name
-    print(len(team_games))
     average_stats = [0] * 35
     for game in range(len(team_games)):
         if team_games[game].home_team == team_name:
@@ -239,10 +244,20 @@ with open('players.pkl', 'rb') as inp:
 
 # Find the predicted stats for every player in the season
 gamelog_list = []
+team_list = []
 for player in players:
    player_var = players[player]
    if player_var.year == 2022:
        gamelog_list.append(player_var)
+
+       # Add all teams to team_list
+       player_team = player_var.team
+       if player_team not in team_list:
+           team_list.append(player_team)
+
+team_stats = {}
+for team in team_list:
+    team_stats[team.name] = get_opp_team_stats(team, 0.0005)
 
 # Find best alpha divider hyperparameter
 best_alpha = validation(gamelog_list, 20)
