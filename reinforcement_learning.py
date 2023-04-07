@@ -5,9 +5,27 @@ from getting_bbref_season_data import Season
 from getting_bbref_season_data import Team
 from getting_bbref_season_data import Game
 
+def convert_to_valid_value(value):
+    """
+    Convert the value from an invalid string to a valid float.
+    """
+    time = value.find(":")
+    decimal = value.find(".")
+    plus = value.find("+")
+    if value == "":
+        value = 0
+    if time >= 0:
+        value = int(value[0:time]) + (int(value[time + 1:5]) / 60)
+    if decimal == 0:
+        value = "0" + value
+    if plus == 0:
+        value = value[1:]
+    return float(value)
+
 def train_players(player_list, alpha_divider):
     """
-    Train players in player_list.
+    Trains and returns trained players in player_list. Only returns players
+    that played at least 20 games this season.
     """
     player_feature_dict = {}
     for player_var in player_list:
@@ -47,18 +65,8 @@ def train_players(player_list, alpha_divider):
 
                 # Convert stats to valid floats
                 for value in feature_values_strings:
-                    time = value.find(":")
-                    decimal = value.find(".")
-                    plus = value.find("+")
-                    if value == "":
-                        value = 0
-                    if time >= 0:
-                        value = int(value[0:time]) + (int(value[time + 1:5]) / 60)
-                    if decimal == 0:
-                        value = "0" + value
-                    if plus == 0:
-                        value = value[1:]
-                    feature_values[num_games - 1].append(float(value))
+                    new_value = convert_to_valid_value(value)
+                    feature_values[num_games - 1].append(new_value)
                 
                 # Extract player's team inactives for each game as features
                 inactives_features = [0] * roster_size
@@ -68,44 +76,35 @@ def train_players(player_list, alpha_divider):
 
                 # Extract opposing team's game-by-game stats as features
                 opp_team_stat_list = list(opp_team_stats.values())
-                opp_team_features = [0] * 35
-                for game_num in range(len(opp_team_stat_list)):
+                opp_team_features = []
+                for opp_value in opp_team_stat_list:
                     # Convert stats to valid floats
-                    opp_value = opp_team_stat_list[game_num]
-                    time = opp_value.find(":")
-                    decimal = opp_value.find(".")
-                    plus = opp_value.find("+")
-                    if opp_value == "":
-                        opp_value = 0
-                    if time >= 0:
-                        opp_value = int(opp_value[0:time]) + (int(opp_value[time + 1:5]) / 60)
-                    if decimal == 0:
-                        opp_value = "0" + opp_value
-                    if plus == 0:
-                        opp_value = opp_value[1:]
-                    opp_team_features[game_num] = float(opp_value)
+                    new_opp_value = convert_to_valid_value(opp_value)
+                    opp_team_features.append(new_opp_value)
 
                 # Add all features to one list
                 feature_values[num_games - 1] += opp_team_features
                 feature_values[num_games - 1] += inactives_features
         
-        # Initialize weights
-        num_features= len(feature_values[0])
-        weights = [0] * num_features
+        # Only train if player played at least 20 games
+        if num_games >= 20:
+            # Initialize weights
+            num_features= len(feature_values[0])
+            weights = [0] * num_features
 
-        # Initialize hyperparameters
-        alpha = 1 / (num_games * num_features * alpha_divider) # learning rate
+            # Initialize hyperparameters
+            alpha = 1 / (num_games * num_features * alpha_divider) # learning rate
 
-        # Train weights on first (num_games - 10) games of the player's season
-        for game in range(num_games - 10):
-            prediction = 0
-            for feature in range(num_features):
-                prediction += feature_values[game][feature] * weights[feature]
-            difference = actual_points[game] - prediction
-            for weight in range(num_features):
-                weights[weight] += alpha * difference * feature_values[game][weight]
+            # Train weights on first (num_games - 10) games of the player's season
+            for game in range(num_games - 10):
+                prediction = 0
+                for feature in range(num_features):
+                    prediction += feature_values[game][feature] * weights[feature]
+                difference = actual_points[game] - prediction
+                for weight in range(num_features):
+                    weights[weight] += alpha * difference * feature_values[game][weight]
 
-        player_feature_dict[player_name] = (feature_values, weights, actual_points)
+            player_feature_dict[player_name] = (feature_values, weights, actual_points)
     
     # Return dictionary of each player's features, weights, and actual points
     return player_feature_dict
@@ -197,31 +196,53 @@ def test_players(player_feature_dict):
             file.write(output_string1 + "\n")
             file.write(output_string2 + "\n")
 
+def get_opp_team_stats(team, learning_rate):
+    """
+    Gets the stats for an opposing team throughout the season. Uses learning_rate
+    to place more emphasis on recent games. The higher the learning rate, the
+    higher the emphasis on recent games.
+    """
+    team_games = team.games
+    team_name = team.name
+    print(len(team_games))
+    average_stats = [0] * 35
+    for game in range(len(team_games)):
+        if team_games[game].home_team == team_name:
+            home = True
+        else:
+            home = False
+        if home == True:
+            team_stats = team_games[game].home_team_stats
+            team_inactives = team_games[game].home_inactives # team inactives
+        else:
+            team_stats = team_games[game].away_team_stats
+            team_inactives = team_games[game].away_inactives
+
+        team_stat_list = list(team_stats.values())
+        team_features = []
+        for value in team_stat_list:
+            # Convert stats to valid floats
+            new_value = convert_to_valid_value(value)
+            team_features.append(new_value)
+
+        alpha = learning_rate
+        for feature in range(len(team_features)):
+            average_stats[feature] += (alpha * team_features[feature]) - (alpha * average_stats[feature])
+    
+    return average_stats
+        
+
 with open('s2022.pkl', 'rb') as inp:
     s2022 = pickle.load(inp)
 with open('players.pkl', 'rb') as inp:
     players = pickle.load(inp)
 
+# Find the predicted stats for every player in the season
 gamelog_list = []
-gamelog_list.append(players['StephenCurry2022GSW'])
-gamelog_list.append(players['AndrewWiggins2022GSW'])
-gamelog_list.append(players['JordanPoole2022GSW'])
-gamelog_list.append(players['KlayThompson2022GSW'])
-gamelog_list.append(players['DraymondGreen2022GSW'])
-gamelog_list.append(players['OttoPorterJr.2022GSW'])
-gamelog_list.append(players['KevonLooney2022GSW'])
-gamelog_list.append(players['DamionLee2022GSW'])
-gamelog_list.append(players['AndreIguodala2022GSW'])
-gamelog_list.append(players['GaryPaytonII2022GSW'])
-gamelog_list.append(players['JonathanKuminga2022GSW'])
-gamelog_list.append(players['NemanjaBjelica2022GSW'])
-gamelog_list.append(players['JuanToscano-Anderson2022GSW'])
-gamelog_list.append(players['MosesMoody2022GSW'])
-gamelog_list.append(players['ChrisChiozza2022GSW'])
-
-# Too few games played
-# gamelog_list.append(players['JeffDowtin2022GSW'])
-# gamelog_list.append(players['QuinndaryWeatherspoon2022GSW'])
+for player in players:
+   player_var = players[player]
+   if player_var.year == 2022:
+       gamelog_list.append(player_var)
 
 # Find best alpha divider hyperparameter
 best_alpha = validation(gamelog_list, 20)
