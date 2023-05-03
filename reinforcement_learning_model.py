@@ -322,10 +322,13 @@ def get_opp_team_stats(team, learning_rate):
     return average_stats
 
 
-def run_model(file, stat):
+def run_model(file, stat, hyperparameters=None):
     """
     Train, validate, and test the reinforcement learning model for stat on the
-    2022 NBA season. Output the results in file.
+    2022 NBA season. Output the results in file. Validation only occurs if
+    hyperparameters is not specified. If hyperparameters is specified
+    (weight_divider, feature_divider, opp_team_divider), then validation
+    does not occur and the hyperparameters passed in are used.
     """
     with open('s2022.pkl', 'rb') as inp:
         s2022 = pickle.load(inp)
@@ -347,14 +350,17 @@ def run_model(file, stat):
                 gamelog_list.append(player_var)
 
     # Find best hyperparameters
-    best_hyperparameters = validation(stat, gamelog_list, team_list, 30)
-    with open(file, "a") as file:
-        file.write("Best weight alpha found: " +
-                   str(best_hyperparameters[0]) + "\n")
-        file.write("Best feature alpha found: " +
-                   str(best_hyperparameters[1]) + "\n")
-        file.write("Best opposing team alpha found: " +
-                   str(best_hyperparameters[2]) + "\n")
+    if hyperparameters == None:
+        best_hyperparameters = validation(stat, gamelog_list, team_list, 30)
+        with open(file, "a") as file:
+            file.write("Best weight alpha found: " +
+                    str(best_hyperparameters[0]) + "\n")
+            file.write("Best feature alpha found: " +
+                    str(best_hyperparameters[1]) + "\n")
+            file.write("Best opposing team alpha found: " +
+                    str(best_hyperparameters[2]) + "\n")
+    else:
+        best_hyperparameters = hyperparameters
 
     # Train model using best hyperparameter
     team_dict = {}
