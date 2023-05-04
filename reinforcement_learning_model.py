@@ -50,6 +50,7 @@ def train_players(stat, player_list, weight_alpha_divider, feature_alpha_divider
         feature_values = []
         num_games = 0
         opp_team_list = []
+        date_list = []
         for i in range(82):
             if type(player[i]) != str:
                 # Get team's and opponents stats and inactives
@@ -67,6 +68,7 @@ def train_players(stat, player_list, weight_alpha_divider, feature_alpha_divider
                     opp_team_stats = team_games[i].home_team_stats
                     # GSW own inactives
                     team_inactives = team_games[i].away_inactives
+                date_list.append(team_games[i].date)
                 opp_team_list.append(opp_team)
 
                 # Extract player's gamelog stats as features
@@ -131,7 +133,7 @@ def train_players(stat, player_list, weight_alpha_divider, feature_alpha_divider
             # TO DO: ADD GAMES FROM PREVIOUS SEASONS WITH HYPERPARAMETER TO WEIGH
             # DOWN PREVIOUS SEASONS/TEAMS
             player_feature_dict[player_name] = (
-                feature_values, weights, actual_stats, rolling_feature_sum, opp_team_list)
+                feature_values, weights, actual_stats, rolling_feature_sum, opp_team_list, date_list)
 
     # Return dictionary of each player's features, weights, and actual points
     return player_feature_dict
@@ -158,6 +160,7 @@ def evaluate_players(player_feature_dict, team_dict, start_games_from_end, end_g
         actual_stats = player_feature_dict[player][2]
         rolling_features = player_feature_dict[player][3]
         opp_team_list = player_feature_dict[player][4]
+        date_list = player_feature_dict[player][5]
         num_features = len(feature_values[0])
         num_evaluation_games = math.ceil(
             (start_games_from_end - end_games_from_end) / 2)
@@ -167,9 +170,11 @@ def evaluate_players(player_feature_dict, team_dict, start_games_from_end, end_g
         # Get prediction for stats for each of the specified games
         final_prediction = [0] * num_evaluation_games
         real_stats = []
+        game_dates = []
         count = 0
         for game in range(start_game, end_game, step):
             opposing_team = opp_team_list[game]
+            game_dates.append(date_list[game])
             for feature in range(34):
                 final_prediction[count] += rolling_features[feature] * \
                     weights[feature]
@@ -185,7 +190,7 @@ def evaluate_players(player_feature_dict, team_dict, start_games_from_end, end_g
         # Compute the predicted vs average stats and add to result dict
         predicted = sum(final_prediction) / num_evaluation_games
         actual = sum(real_stats) / num_evaluation_games
-        results[player] = (predicted, actual, final_prediction, real_stats)
+        results[player] = (predicted, actual, final_prediction, real_stats, game_dates)
 
     return results
 
