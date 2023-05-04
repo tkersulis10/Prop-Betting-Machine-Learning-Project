@@ -80,11 +80,14 @@ def get_player_model():
     if results == None:
         result_layout.addWidget(QLabel("Not a valid player's name.\nMake sure to capitalize their first and last names."))
     else:
-        row_count = 0
+        row_count = 1
         for stat in results:
-            result_layout.addWidget(QLabel(stat[0][0]), row_count, 0, 1, len(stat[3]) - 1)
+            result_layout.addWidget(QLabel(stat[0]), row_count, 0, 1, len(stat[3]) - 1)
             result_layout.addWidget(QLabel("Predicted Game Stats:"), row_count + 1, 0, 1, len(stat[3]) - 1)
             result_layout.addWidget(QLabel("Actual Game Stats:"), row_count + 3, 0, 1, len(stat[3]) - 1)
+            for i in range(len(stat[3])):
+                date = stat[5][i]
+                result_layout.addWidget(QLabel(date), 0, i, 1, 1)
             for i in range(len(stat[3])):
                 predicted = stat[3][i]
                 actual = stat[4][i]

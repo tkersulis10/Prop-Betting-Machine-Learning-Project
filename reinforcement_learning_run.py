@@ -18,7 +18,7 @@ def run(player_name, stat_run_list):
             file.write("Stat: " + stat + "\n")
         # output_string += "Stat: " + stat + "\n"
         curr_stat_list = []
-        curr_stat_list.append(("Stat: " + stat, None, None, None))
+        curr_stat_list.append("Stat: " + stat)
         model_output = run_model(player_name, output_file, stat_dict[stat], hyperparameters=hyperparameters_dict[stat])
         # if model_output[player_name] == ["Not a valid player's name.\nMake sure to capitalize their first and last names."]:
         if model_output == None:

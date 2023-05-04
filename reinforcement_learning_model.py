@@ -286,8 +286,9 @@ def test_players(player_feature_dict, team_dict):
         # output_string4 = "actual game stats: " + ", ".join([str(i) for i in results[player][3]])
         # return_string += output_string3 + "\n" + output_string4 + "\n"
         return_dict[player] = (str(results[player][0]), str(results[player][1]), 
-                               [str(i) for i in results[player][2]],
-                               [str(i) for i in results[player][3]])
+                               [str(i)[:4] for i in results[player][2]],
+                               [str(i) for i in results[player][3]],
+                               results[player][4])
 
     # return return_string
     return return_dict
