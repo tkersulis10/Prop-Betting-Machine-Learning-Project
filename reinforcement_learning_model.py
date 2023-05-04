@@ -1,4 +1,5 @@
 import pickle
+import pickle5
 import random
 import math
 from getting_bbref_season_data import Player
@@ -184,7 +185,7 @@ def evaluate_players(player_feature_dict, team_dict, start_games_from_end, end_g
         # Compute the predicted vs average stats and add to result dict
         predicted = sum(final_prediction) / num_evaluation_games
         actual = sum(real_stats) / num_evaluation_games
-        results[player] = (predicted, actual)
+        results[player] = (predicted, actual, final_prediction, real_stats)
 
     return results
 
@@ -264,6 +265,8 @@ def test_players(player_feature_dict, team_dict):
     """
     results = evaluate_players(player_feature_dict, team_dict, 9, 0, 2)
 
+    # return_string = ""
+    return_dict = {}
     for player in results.keys():
         # Output the predicted vs average stats and write to file
         output_string1 = player + " average predicted stats: " + \
@@ -273,6 +276,16 @@ def test_players(player_feature_dict, team_dict):
         with open("reinforcement_learning_output.txt", "a") as file:
             file.write(output_string1 + "\n")
             file.write(output_string2 + "\n")
+        # return_string += output_string1 + "\n" + output_string2 + "\n"
+        # output_string3 = "predicted game stats: " + ", ".join([str(i) for i in results[player][2]])
+        # output_string4 = "actual game stats: " + ", ".join([str(i) for i in results[player][3]])
+        # return_string += output_string3 + "\n" + output_string4 + "\n"
+        return_dict[player] = (str(results[player][0]), str(results[player][1]), 
+                               [str(i) for i in results[player][2]],
+                               [str(i) for i in results[player][3]])
+
+    # return return_string
+    return return_dict
 
 
 def get_opp_team_stats(team, learning_rate):
@@ -322,18 +335,24 @@ def get_opp_team_stats(team, learning_rate):
     return average_stats
 
 
-def run_model(file, stat, hyperparameters=None):
+def run_model(player_name, file, stat, hyperparameters=None):
     """
     Train, validate, and test the reinforcement learning model for stat on the
-    2022 NBA season. Output the results in file. Validation only occurs if
-    hyperparameters is not specified. If hyperparameters is specified
+    2022 NBA season on player_name. Output the results in file. Validation only
+    occurs if hyperparameters is not specified. If hyperparameters is specified
     (weight_divider, feature_divider, opp_team_divider), then validation
     does not occur and the hyperparameters passed in are used.
     """
-    with open('s2022.pkl', 'rb') as inp:
-        s2022 = pickle.load(inp)
-    with open('players.pkl', 'rb') as inp:
-        players = pickle.load(inp)
+    try:
+        with open('s2022.pkl', 'rb') as inp:
+            s2022 = pickle.load(inp)
+        with open('players.pkl', 'rb') as inp:
+            players = pickle.load(inp)
+    except: # For Python 3.7
+        with open('s2022.pkl', 'rb') as inp:
+            s2022 = pickle5.load(inp)
+        with open('players.pkl', 'rb') as inp:
+            players = pickle5.load(inp)
 
     # Find the predicted stats for every player in the season
     gamelog_list = []
@@ -346,8 +365,12 @@ def run_model(file, stat, hyperparameters=None):
             if player_team not in team_list:
                 team_list.append(player_team)
 
-            if player_var.team.name == "GSW":
+            if player_var.name == player_name:
                 gamelog_list.append(player_var)
+
+    if len(gamelog_list) == 0:
+        # return {player_name: ["Not a valid player's name.\nMake sure to capitalize their first and last names."]}
+        return None
 
     # Find best hyperparameters
     if hyperparameters == None:
@@ -371,4 +394,4 @@ def run_model(file, stat, hyperparameters=None):
         stat, gamelog_list, best_hyperparameters[0], best_hyperparameters[1])
 
     # Evaluate model
-    test_players(player_dict, team_dict)
+    return test_players(player_dict, team_dict)

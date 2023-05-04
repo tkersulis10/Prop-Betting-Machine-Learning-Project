@@ -1,0 +1,62 @@
+QWidget#mainWindow {
+  border-image: url(GUI_resources/nba_logo_opaque.jpg) 0 0 0 0 stretch stretch;
+  background-repeat: no-repeat; 
+  background-position: center;
+  background-color: #fff
+}
+
+QWidget {
+  background: transparent;
+}
+QLabel {
+  color: #464d55;
+  font-weight: 600;
+}
+QLabel#welcomeHeading {
+  color: #0f1925;
+  font-size: 54px;
+  margin-bottom: 10px;
+}
+
+QLabel#subheading1 {
+  color: #0f1925;
+  font-size: 24px;
+  font-weight: normal;
+  margin-bottom: 10px;
+}
+
+QLabel#subheading2 {
+  color: #0f1925;
+  font-size: 24px;
+  font-weight: normal;
+  margin-bottom: 10px;
+}
+
+QLineEdit {
+  border-radius: 8px;
+  border: 2px solid #8A9FAF;
+  padding: 5px 15px;
+}
+
+QLineEdit:focus {
+  border: 2px solid #8A9FAF;
+}
+
+QLineEdit::placeholder {
+  color: #767e89;
+}
+QPushButton {
+  background-color: #0d6efd;
+  color: #fff;
+  font-weight: 600;
+  border-radius: 8px;
+  border: 2px solid #0d6efd;
+  padding: 5px 15px;
+  margin-top: 10px;
+  outline: 0px;
+}
+QPushButton:hover,
+QPushButton:focus {
+  background-color: #0b5ed7;
+  border: 3px solid #9ac3fe;
+}
