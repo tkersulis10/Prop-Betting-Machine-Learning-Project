@@ -79,6 +79,14 @@ layout.addWidget(stats_clicked)
 layout.addWidget(scrolling)
 
 def get_player_model():
+    """
+    Gets the player model once enter is hit and displays the model in a
+    scrolling widget.
+
+    Gets the player model by running a model (i.e. reinforcement_learning_run.run).
+    For specification of how results need to be formatted in the model, see
+    reinforcement_learning_run.run's specification.
+    """
     # Clear previous input
     for i in reversed(range(result_layout.count())): 
         removeW = result_layout.itemAt(i).widget()
@@ -86,7 +94,11 @@ def get_player_model():
         removeW.setParent(None)
 
     player_name = input_line.text()
+
+    # For specification of how results need to be formatted, see
+    # reinforcement_learning_run.run's specification.
     results = reinforcement_learning_run.run(player_name, selected_stats)
+
     if results == None:
         result_layout.addWidget(QLabel("Not a valid player's name.\nMake sure to capitalize their first and last names."))
     else:
@@ -135,6 +147,10 @@ def get_player_model():
             row_count += 9
 
 def select_stat(stat):
+    """
+    Gets the stat that were selected by pressing a QPushButton and displays
+    this to the user as well as add stat to selected_stats.
+    """
     if stat not in selected_stats:
         selected_stats.append(stat)
         stats_clicked.setText(stats_clicked.text() + stat + ", ")
