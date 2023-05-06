@@ -5,8 +5,9 @@ from getting_bbref_season_data import Season
 from getting_bbref_season_data import Team
 from getting_bbref_season_data import Game
 import reinforcement_learning_run
+import get_prop_bets
 
-from PyQt5.QtWidgets import QApplication, QWidget, QLineEdit, QFormLayout, QLabel, QVBoxLayout, QHBoxLayout, QPushButton, QGridLayout
+from PyQt5.QtWidgets import QApplication, QWidget, QLineEdit, QFormLayout, QLabel, QVBoxLayout, QHBoxLayout, QPushButton, QGridLayout, QScrollArea, QScrollBar
 from PyQt5.QtCore import Qt
 from PyQt5.QtGui import QPalette, QPixmap, QIcon
 
@@ -57,6 +58,14 @@ stat_layout.addWidget(pts_button)
 stat_layout.addWidget(ast_button)
 stat_layout.addWidget(trb_button)
 
+results = QWidget()
+results.setLayout(result_layout)
+
+scrolling = QScrollArea()
+scrolling.setWidget(results)
+scrolling.setWidgetResizable(True)
+scrolling.setFixedHeight(600)
+
 layout = QVBoxLayout()
 layout.setAlignment(Qt.AlignTop)
 layout.addWidget(welcomeHeading)
@@ -66,7 +75,8 @@ layout.addWidget(QLabel("Enter player's name:"))
 layout.addWidget(input_line)
 layout.addLayout(stat_layout)
 layout.addWidget(stats_clicked)
-layout.addLayout(result_layout)
+# layout.addLayout(result_layout)
+layout.addWidget(scrolling)
 
 def get_player_model():
     # Clear previous input
@@ -83,26 +93,46 @@ def get_player_model():
         row_count = 1
         for stat in results:
             result_layout.addWidget(QLabel(stat[0]), row_count, 0, 1, len(stat[3]) - 1)
-            result_layout.addWidget(QLabel("Predicted Game Stats:"), row_count + 1, 0, 1, len(stat[3]) - 1)
-            result_layout.addWidget(QLabel("Actual Game Stats:"), row_count + 3, 0, 1, len(stat[3]) - 1)
+            result_layout.addWidget(QLabel("Prop Line:"), row_count + 1, 0, 1, len(stat[3]) - 1)
+            result_layout.addWidget(QLabel("Predicted Game Stats:"), row_count + 3, 0, 1, len(stat[3]) - 1)
+            result_layout.addWidget(QLabel("Actual Game Stats:"), row_count + 6, 0, 1, len(stat[3]) - 1)
             for i in range(len(stat[3])):
                 date = stat[5][i]
                 result_layout.addWidget(QLabel(date), 0, i, 1, 1)
             for i in range(len(stat[3])):
-                predicted = stat[3][i]
-                actual = stat[4][i]
-                result_layout.addWidget(QLabel(predicted), row_count + 2, i, 1, 1)
-                result_layout.addWidget(QLabel(actual), row_count + 4, i, 1, 1)
-                image_label = QLabel()
-                if float(predicted) > float(actual):
-                    image_pixmap = QPixmap('GUI_resources/green_up_arrow.png')
-                    image_label.setPixmap(image_pixmap.scaledToWidth(50))
-                    result_layout.addWidget(image_label, row_count + 5, i, 1, 1)
+                prop_line = get_prop_bets.get_props(player_name, stat[0][-3:], stat[5][i])
+                if prop_line == None:
+                    result_layout.addWidget(QLabel("Error retrieving data."))
                 else:
-                    image_pixmap = QPixmap('GUI_resources/red_down_arrow.png')
-                    image_label.setPixmap(image_pixmap.scaledToWidth(50))
-                    result_layout.addWidget(image_label, row_count + 5, i, 1, 1)
-            row_count += 6
+                    prop_line_string = prop_line[0] + " (" + prop_line[1] + ")"
+                    predicted = stat[3][i]
+                    actual = stat[4][i]
+                    result_layout.addWidget(QLabel(prop_line_string), row_count + 2, i, 1, 1)
+                    result_layout.addWidget(QLabel(predicted), row_count + 4, i, 1, 1)
+                    result_layout.addWidget(QLabel(actual), row_count + 7, i, 1, 1)
+                    image_label = QLabel()
+                    correct_label = QLabel()
+                    if float(predicted) > float(prop_line[0]):
+                        image_pixmap = QPixmap('GUI_resources/green_up_arrow.png')
+                        image_label.setPixmap(image_pixmap.scaledToWidth(25))
+                        result_layout.addWidget(image_label, row_count + 5, i, 1, 1)
+                        if float(actual) >= float(prop_line[0]):
+                            correct_image = QPixmap('GUI_resources/green_checkmark.png')
+                        else:
+                            correct_image = QPixmap('GUI_resources/red_x.png')
+                        correct_label.setPixmap(correct_image.scaledToWidth(25))
+                        result_layout.addWidget(correct_label, row_count + 8, i, 1, 1)
+                    else:
+                        image_pixmap = QPixmap('GUI_resources/red_down_arrow.png')
+                        image_label.setPixmap(image_pixmap.scaledToWidth(25))
+                        result_layout.addWidget(image_label, row_count + 5, i, 1, 1)
+                        if float(actual) <= float(prop_line[0]):
+                            correct_image = QPixmap('GUI_resources/green_checkmark.png')
+                        else:
+                            correct_image = QPixmap('GUI_resources/red_x.png')
+                        correct_label.setPixmap(correct_image.scaledToWidth(25))
+                        result_layout.addWidget(correct_label, row_count + 8, i, 1, 1)
+            row_count += 9
 
 def select_stat(stat):
     if stat not in selected_stats:
