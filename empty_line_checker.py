@@ -1,6 +1,6 @@
 import getting_prop_bet_data
 
-with open("points_prop_bet_output.txt") as file:
+with open("rebounds_prop_bet_output.txt") as file:
     lines = file.readlines()
     previous = "hi"
     empty_lines = []
@@ -21,7 +21,9 @@ with open("points_prop_bet_output.txt") as file:
             #    new_date += "0" + date[-6:-5]
             #else:
             #    new_date += date[-7:-5]
-            empty_lines.append((year, month, day))
+            empty_lines.append((int(year), int(month), int(day)))
         previous = line
 
 getting_prop_bet_data.get_data("points", date_list=empty_lines)
+getting_prop_bet_data.get_data("assists", date_list=empty_lines)
+getting_prop_bet_data.get_data("rebounds", date_list=empty_lines[192:-170])
