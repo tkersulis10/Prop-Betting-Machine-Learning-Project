@@ -22,7 +22,7 @@ def run(player_name, stat_run_list):
     are the result of reinforcement_learning_model.test_players (and
     evaluate_player).
 
-    Example output for player_name = 'Stephen Curry' and stat_run_list = ['pts,
+    Example output for player_name = 'Stephen Curry' and stat_run_list = ['pts',
     'ast']:
     [
         [

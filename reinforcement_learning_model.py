@@ -6,7 +6,7 @@ from getting_bbref_season_data import Player
 from getting_bbref_season_data import Season
 from getting_bbref_season_data import Team
 from getting_bbref_season_data import Game
-
+from unidecode import unidecode
 
 def convert_to_valid_value(value):
     """
@@ -37,7 +37,7 @@ def train_players(stat, player_list, weight_alpha_divider, feature_alpha_divider
     for player_var in player_list:
         # Get player details
         player = player_var.gamelog
-        player_name = player_var.name
+        player_name = unidecode(player_var.name)
         team_name = player_var.team.name
         team_games = player_var.team.games
         team_roster = []
@@ -278,9 +278,9 @@ def test_players(player_feature_dict, team_dict):
             str(results[player][0])
         output_string2 = player + " actual average stats: " + \
             str(results[player][1])
-        with open("reinforcement_learning_output.txt", "a") as file:
-            file.write(output_string1 + "\n")
-            file.write(output_string2 + "\n")
+        #with open("reinforcement_learning_output.txt", "a") as file:
+        #    file.write(output_string1 + "\n")
+        #    file.write(output_string2 + "\n")
         # return_string += output_string1 + "\n" + output_string2 + "\n"
         # output_string3 = "predicted game stats: " + ", ".join([str(i) for i in results[player][2]])
         # output_string4 = "actual game stats: " + ", ".join([str(i) for i in results[player][3]])
@@ -371,7 +371,7 @@ def run_model(player_name, file, stat, hyperparameters=None):
             if player_team not in team_list:
                 team_list.append(player_team)
 
-            if player_var.name == player_name:
+            if unidecode(player_var.name) == player_name:
                 gamelog_list.append(player_var)
 
     if len(gamelog_list) == 0:
@@ -399,5 +399,7 @@ def run_model(player_name, file, stat, hyperparameters=None):
     player_dict = train_players(
         stat, gamelog_list, best_hyperparameters[0], best_hyperparameters[1])
 
+    if player_dict == {}:
+        return None
     # Evaluate model
     return test_players(player_dict, team_dict)

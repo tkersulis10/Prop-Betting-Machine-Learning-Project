@@ -44,19 +44,22 @@ result_layout = QGridLayout()
 pts_button = QPushButton("Points")
 ast_button = QPushButton("Assists")
 trb_button = QPushButton("Rebounds")
+reset_button = QPushButton("Reset Stats")
 #pts_button.setStyleSheet("QPushButton" "{" "background-color : lightblue;" "}" "QPushButton::pressed" "{""background-color : blue;"   "}")
 #ast_button.setStyleSheet("QPushButton" "{" "background-color : lightblue;" "}" "QPushButton::pressed" "{""background-color : blue;"   "}")
 #trb_button.setStyleSheet("QPushButton" "{" "background-color : lightblue;" "}" "QPushButton::pressed" "{""background-color : blue;"   "}")
 pts_button.clicked.connect(lambda: select_stat("pts"))
 ast_button.clicked.connect(lambda: select_stat("ast"))
 trb_button.clicked.connect(lambda: select_stat("trb"))
+reset_button.clicked.connect(lambda: reset_stats())
 
 selected_stats = []
 stats_clicked = QLabel("Stats selected: ")
-stat_layout = QHBoxLayout()
-stat_layout.addWidget(pts_button)
-stat_layout.addWidget(ast_button)
-stat_layout.addWidget(trb_button)
+stat_layout = QGridLayout()
+stat_layout.addWidget(pts_button, 0, 0, 1, 1)
+stat_layout.addWidget(ast_button, 0, 1, 1, 1)
+stat_layout.addWidget(trb_button, 0, 2, 1, 1)
+stat_layout.addWidget(reset_button, 1, 1, 1, 1)
 
 results = QWidget()
 results.setLayout(result_layout)
@@ -64,7 +67,7 @@ results.setLayout(result_layout)
 scrolling = QScrollArea()
 scrolling.setWidget(results)
 scrolling.setWidgetResizable(True)
-scrolling.setFixedHeight(600)
+scrolling.setFixedHeight(550)
 
 layout = QVBoxLayout()
 layout.setAlignment(Qt.AlignTop)
@@ -154,6 +157,14 @@ def select_stat(stat):
     if stat not in selected_stats:
         selected_stats.append(stat)
         stats_clicked.setText(stats_clicked.text() + stat + ", ")
+
+def reset_stats():
+    """
+    Resets the selected stats in the GUI.
+    """
+    global selected_stats
+    selected_stats = []
+    stats_clicked.setText("Stats selected: ")
 
 window.setLayout(layout)
 window.show()

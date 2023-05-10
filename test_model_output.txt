@@ -1,0 +1,8 @@
+Testing reinforcement learning model...
+Testing on 10 random players from the 2022 NBA season.
+Average pts difference: 1.4449808065199854
+Average ast difference: 0.21118983285069937
+Average trb difference: 1.3574767940268757
+Ratio of correct pts bets: 0.3333333333333333
+Ratio of correct ast bets: 0.5
+Ratio of correct trb bets: 0.25
