@@ -26,4 +26,4 @@ with open("rebounds_prop_bet_output.txt") as file:
 
 getting_prop_bet_data.get_data("points", date_list=empty_lines)
 getting_prop_bet_data.get_data("assists", date_list=empty_lines)
-getting_prop_bet_data.get_data("rebounds", date_list=empty_lines[192:-170])
+getting_prop_bet_data.get_data("rebounds", date_list=empty_lines)

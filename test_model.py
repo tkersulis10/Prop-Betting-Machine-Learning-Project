@@ -15,16 +15,16 @@ with open('players.pkl', 'rb') as inp:
     except:
         players = pickle5.load(inp)
 
-players_2022 = []
-test_year = 2022 # variable to change
+players_2023 = []
+test_year = 2023 # variable to change
 for player in players:
     if players[player].year == test_year:
-        players_2022.append(players[player])
+        players_2023.append(players[player])
 
-# Test model on 200 random players from 2022 NBA season
-total_num_players = len(players_2022)
-num_random_players = 10 # variable to change
-random_players = random.choices(players_2022, k=num_random_players)
+# Test model on all players from 2023 NBA season
+total_num_players = len(players_2023)
+# num_random_players = 10 # variable to change
+# random_players = random.choices(players_2023, k=num_random_players)
 stat_list = ['pts', 'ast', 'trb']
 player_count = 0
 pts_diff = 0
@@ -36,10 +36,11 @@ correct_count_trb = 0
 total_num_dates_pts = 0
 total_num_dates_ast = 0
 total_num_dates_trb = 0
-for player in random_players:
+# for player in random_players:
+for player in players_2023:
     # run model
     player_name = unidecode(player.name)
-    print(player_name)
+    # print(player_name)
     results = reinforcement_learning_run.run(player.name, stat_list)
     if results != None:
         player_count += 1
@@ -96,8 +97,9 @@ correct_trb_ratio = correct_count_trb / total_num_dates_trb
 
 with open("test_model_output.txt", "a") as file:
     file.write("Testing reinforcement learning model...\n") # model to test on
-    file.write("Testing on " + str(num_random_players) + " random players from the " \
-               + str(test_year) + " NBA season.\n")
+    # file.write("Testing on " + str(num_random_players) + " random players from the " \
+    #           + str(test_year) + " NBA season.\n")
+    file.write("Testing on all players from the " + str(test_year) + " NBA season.\n")
     file.write("Average pts difference: " + str(average_diff_pts) + "\n")
     file.write("Average ast difference: " + str(average_diff_ast) + "\n")
     file.write("Average trb difference: " + str(average_diff_trb) + "\n")

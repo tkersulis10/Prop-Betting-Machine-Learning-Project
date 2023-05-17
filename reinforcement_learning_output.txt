@@ -1,102 +1,267 @@
 Stat: pts
-Best weight alpha found: 148
-Best feature alpha found: 30
-Best opposing team alpha found: 9
-Nemanja Bjelica average predicted stats: 4.960341530245664
-Nemanja Bjelica actual average stats: 4.4
-Chris Chiozza average predicted stats: 0.5160005755701929
-Chris Chiozza actual average stats: 3.4
-Stephen Curry average predicted stats: 25.417420378003563
-Stephen Curry actual average stats: 14.8
-Draymond Green average predicted stats: 4.45296647081311
-Draymond Green actual average stats: 7.2
-Andre Iguodala average predicted stats: 4.464148046840319
-Andre Iguodala actual average stats: 3.6
-Jonathan Kuminga average predicted stats: 11.078079302457642
-Jonathan Kuminga actual average stats: 8.6
-Damion Lee average predicted stats: 5.793055087089026
-Damion Lee actual average stats: 4.6
-Kevon Looney average predicted stats: 5.695711102116815
-Kevon Looney actual average stats: 4.0
-Moses Moody average predicted stats: 9.557477426341544
-Moses Moody actual average stats: 5.8
-Gary Payton II average predicted stats: 5.072780866337758
-Gary Payton II actual average stats: 8.8
-Jordan Poole average predicted stats: 23.08351339301662
-Jordan Poole actual average stats: 24.2
-Otto Porter Jr. average predicted stats: 6.538031656674697
-Otto Porter Jr. actual average stats: 8.2
-Klay Thompson average predicted stats: 24.720860859061666
-Klay Thompson actual average stats: 27.0
-Juan Toscano-Anderson average predicted stats: 3.7947605556882236
-Juan Toscano-Anderson actual average stats: 4.0
-Andrew Wiggins average predicted stats: 14.51853260054445
-Andrew Wiggins actual average stats: 20.8
+Best weight alpha found: 205
+Best feature alpha found: 5
+Best opposing team alpha found: 17
+Best inactive number found: 99
+Yuta Watanabe average predicted stats: 2.0376584830347055
+Yuta Watanabe actual average stats: 3.2
+Davion Mitchell average predicted stats: 4.234577096073073
+Davion Mitchell actual average stats: 6.1
+Jamal Murray average predicted stats: 19.123661077861893
+Jamal Murray actual average stats: 20.0
+Jaylin Williams average predicted stats: 7.237456538833681
+Jaylin Williams actual average stats: 5.8
+Christian Koloko average predicted stats: 0.8871188818923971
+Christian Koloko actual average stats: 2.4
+Cedi Osman average predicted stats: 9.251123951434057
+Cedi Osman actual average stats: 7.6
+James Bouknight average predicted stats: 1.4374229395714515
+James Bouknight actual average stats: 8.0
+Luka Doncic average predicted stats: 31.093790804489394
+Luka Doncic actual average stats: 27.4
+Cam Thomas average predicted stats: 12.568457434035471
+Cam Thomas actual average stats: 9.5
+CJ McCollum average predicted stats: 19.828290003725463
+CJ McCollum actual average stats: 20.4
+Jabari Walker average predicted stats: 2.99413801579382
+Jabari Walker actual average stats: 9.4
+Giannis Antetokounmpo average predicted stats: 29.41881551876939
+Giannis Antetokounmpo actual average stats: 29.2
+MarJon Beauchamp average predicted stats: 3.649681744717126
+MarJon Beauchamp actual average stats: 4.7
+Moritz Wagner average predicted stats: 9.915178968934315
+Moritz Wagner actual average stats: 7.6
+Dyson Daniels average predicted stats: 2.0873838399667237
+Dyson Daniels actual average stats: 3.3
+Mitchell Robinson average predicted stats: 6.694631727976062
+Mitchell Robinson actual average stats: 6.6
+Christian Braun average predicted stats: 3.805189910136478
+Christian Braun actual average stats: 7.9
+Miles McBride average predicted stats: 1.1688366602930897
+Miles McBride actual average stats: 5.1
+Udoka Azubuike average predicted stats: 2.0882794956910837
+Udoka Azubuike actual average stats: 7.5
+Markelle Fultz average predicted stats: 18.215741819569462
+Markelle Fultz actual average stats: 13.3
+Daishen Nix average predicted stats: 6.692754394229458
+Daishen Nix actual average stats: 2.1
+Ish Wainright average predicted stats: 4.591119575957302
+Ish Wainright actual average stats: 3.8
+Wendell Carter Jr. average predicted stats: 15.698026900822763
+Wendell Carter Jr. actual average stats: 14.7
+Evan Mobley average predicted stats: 17.7186223267981
+Evan Mobley actual average stats: 16.3
+Bam Adebayo average predicted stats: 17.0683381697834
+Bam Adebayo actual average stats: 16.8
+Bruce Brown average predicted stats: 9.721064645428621
+Bruce Brown actual average stats: 15.4
+Jaden Hardy average predicted stats: 11.265971845112952
+Jaden Hardy actual average stats: 10.9
+Tim Hardaway Jr. average predicted stats: 14.887851785751526
+Tim Hardaway Jr. actual average stats: 15.2
+Collin Sexton average predicted stats: 14.635953913772997
+Collin Sexton actual average stats: 13.8
+Caleb Martin average predicted stats: 8.62861726128067
+Caleb Martin actual average stats: 6.8
+Larry Nance Jr. average predicted stats: 3.741334692535331
+Larry Nance Jr. actual average stats: 3.9
+Seth Curry average predicted stats: 7.76018423994865
+Seth Curry actual average stats: 5.8
+Christian Wood average predicted stats: 15.548300430992876
+Christian Wood actual average stats: 12.9
+Ochai Agbaji average predicted stats: 10.882411232452528
+Ochai Agbaji actual average stats: 14.7
+Ben Simmons average predicted stats: 5.471986245511308
+Ben Simmons actual average stats: 5.0
+Admiral Schofield average predicted stats: 3.4111880645684267
+Admiral Schofield actual average stats: 3.2
+Caleb Houstan average predicted stats: 1.4719995702226174
+Caleb Houstan actual average stats: 4.0
+Boban Marjanovic average predicted stats: 6.765356995490686
+Boban Marjanovic actual average stats: 2.8
+Terence Davis average predicted stats: 4.239251738592373
+Terence Davis actual average stats: 8.1
+Nicolas Batum average predicted stats: 4.6998502089014
+Nicolas Batum actual average stats: 7.4
+Cory Joseph average predicted stats: 13.690601424419466
+Cory Joseph actual average stats: 11.1
+Talen Horton-Tucker average predicted stats: 15.32934308488771
+Talen Horton-Tucker actual average stats: 20.2
+Edmond Sumner average predicted stats: 5.1304005309803475
+Edmond Sumner actual average stats: 9.5
+Taj Gibson average predicted stats: 2.7689514532379724
+Taj Gibson actual average stats: 3.0
+Rodney McGruder average predicted stats: 3.1116221745620813
+Rodney McGruder actual average stats: 11.1
+Chris Duarte average predicted stats: 8.494542241097244
+Chris Duarte actual average stats: 7.8
+Landry Shamet average predicted stats: 10.52834675272916
+Landry Shamet actual average stats: 6.0
+Andrew Nembhard average predicted stats: 11.99767421931037
+Andrew Nembhard actual average stats: 14.9
+Grayson Allen average predicted stats: 11.492087807100145
+Grayson Allen actual average stats: 8.3
+Jonathan Kuminga average predicted stats: 11.787438315222577
+Jonathan Kuminga actual average stats: 12.6
+Cole Anthony average predicted stats: 13.967503603032437
+Cole Anthony actual average stats: 16.2
+Orlando Robinson average predicted stats: 3.6118591390022226
+Orlando Robinson actual average stats: 1.9
+Chris Paul average predicted stats: 12.493044927692319
+Chris Paul actual average stats: 15.6
+Isaac Okoro average predicted stats: 5.417748783532522
+Isaac Okoro actual average stats: 7.4
+Desmond Bane average predicted stats: 20.76730959444547
+Desmond Bane actual average stats: 23.1
+Derrick White average predicted stats: 12.434740376473773
+Derrick White actual average stats: 15.1
+Jaden McDaniels average predicted stats: 15.195795434786106
+Jaden McDaniels actual average stats: 12.6
+Darius Garland average predicted stats: 21.737012949398753
+Darius Garland actual average stats: 18.8
+JaVale McGee average predicted stats: 2.4614310792663106
+JaVale McGee actual average stats: 6.3
+Lindy Waters III average predicted stats: 7.771523313307144
+Lindy Waters III actual average stats: 5.3
+Myles Turner average predicted stats: 19.86764095718978
+Myles Turner actual average stats: 17.2
+Jimmy Butler average predicted stats: 26.764819854773332
+Jimmy Butler actual average stats: 24.8
+Sam Hauser average predicted stats: 4.6803655397906185
+Sam Hauser actual average stats: 8.3
+
 Stat: ast
-Best weight alpha found: 699
-Best feature alpha found: 29
-Best opposing team alpha found: 914
-Nemanja Bjelica average predicted stats: 2.338751750518326
-Nemanja Bjelica actual average stats: 2.4
-Chris Chiozza average predicted stats: 1.4226244011351141
-Chris Chiozza actual average stats: 2.2
-Stephen Curry average predicted stats: 5.84271791785162
-Stephen Curry actual average stats: 6.8
-Draymond Green average predicted stats: 5.996413485866992
-Draymond Green actual average stats: 6.6
-Andre Iguodala average predicted stats: 4.004401484727571
-Andre Iguodala actual average stats: 2.8
-Jonathan Kuminga average predicted stats: 0.9303901126645583
-Jonathan Kuminga actual average stats: 1.2
-Damion Lee average predicted stats: 0.895126106786889
-Damion Lee actual average stats: 0.8
-Kevon Looney average predicted stats: 2.2701564114659982
-Kevon Looney actual average stats: 2.4
-Moses Moody average predicted stats: 0.5314161414537029
-Moses Moody actual average stats: 0.6
-Gary Payton II average predicted stats: 0.6843158731301022
-Gary Payton II actual average stats: 1.8
-Jordan Poole average predicted stats: 3.4355679632001803
-Jordan Poole actual average stats: 7.0
-Otto Porter Jr. average predicted stats: 1.40827525922397
-Otto Porter Jr. actual average stats: 1.0
-Klay Thompson average predicted stats: 2.538757883823469
-Klay Thompson actual average stats: 2.2
-Juan Toscano-Anderson average predicted stats: 1.7058221048649596
-Juan Toscano-Anderson actual average stats: 1.4
-Andrew Wiggins average predicted stats: 2.4001150153052095
-Andrew Wiggins actual average stats: 1.4
+Best weight alpha found: 320
+Best feature alpha found: 3
+Best opposing team alpha found: 182
+Best inactive number found: 107
+Donovan Mitchell average predicted stats: 4.100271235408395
+Donovan Mitchell actual average stats: 2.7
+John Konchar average predicted stats: 1.1464703196553103
+John Konchar actual average stats: 1.6
+Santi Aldama average predicted stats: 1.364234843318008
+Santi Aldama actual average stats: 1.4
+DeAndre Jordan average predicted stats: 0.9611932442100134
+DeAndre Jordan actual average stats: 0.9
+Deandre Ayton average predicted stats: 1.3419325349030524
+Deandre Ayton actual average stats: 0.5
+Trendon Watford average predicted stats: 2.5384498846448884
+Trendon Watford actual average stats: 3.0
+Scottie Barnes average predicted stats: 4.648615393826131
+Scottie Barnes actual average stats: 4.8
+Udoka Azubuike average predicted stats: 0.10140550377587906
+Udoka Azubuike actual average stats: 0.5
+Damian Lillard average predicted stats: 6.268365230946273
+Damian Lillard actual average stats: 7.8
+Shai Gilgeous-Alexander average predicted stats: 4.685971999519034
+Shai Gilgeous-Alexander actual average stats: 4.8
+Ja Morant average predicted stats: 7.942961699213797
+Ja Morant actual average stats: 7.6
+Jalen Brunson average predicted stats: 5.520021682095356
+Jalen Brunson actual average stats: 6.0
+Khris Middleton average predicted stats: 5.94158881480046
+Khris Middleton actual average stats: 5.9
+Kevin Porter Jr. average predicted stats: 6.194482174359242
+Kevin Porter Jr. actual average stats: 5.3
+Tre Jones average predicted stats: 5.357682233619687
+Tre Jones actual average stats: 8.6
+Kelly Olynyk average predicted stats: 3.4914479646340966
+Kelly Olynyk actual average stats: 5.7
+Marvin Bagley III average predicted stats: 1.1990537787181395
+Marvin Bagley III actual average stats: 1.3
+Jalen Smith average predicted stats: 0.9815037854352481
+Jalen Smith actual average stats: 1.0
+P.J. Tucker average predicted stats: 0.8570783739492669
+P.J. Tucker actual average stats: 0.7
+Amir Coffey average predicted stats: 0.9734285479975288
+Amir Coffey actual average stats: 0.4
+Ish Smith average predicted stats: 2.462975243629735
+Ish Smith actual average stats: 2.4
+Jrue Holiday average predicted stats: 6.84013725027247
+Jrue Holiday actual average stats: 8.2
+Gary Trent Jr. average predicted stats: 1.871051392701552
+Gary Trent Jr. actual average stats: 1.4
+Jamal Murray average predicted stats: 5.990034044673768
+Jamal Murray actual average stats: 7.2
+Anthony Lamb average predicted stats: 1.5168965990568828
+Anthony Lamb actual average stats: 0.8
+Marcus Smart average predicted stats: 4.65398933988637
+Marcus Smart actual average stats: 4.8
+Lindy Waters III average predicted stats: 0.7552128928651471
+Lindy Waters III actual average stats: 0.5
+Kevon Looney average predicted stats: 1.9087340104093626
+Kevon Looney actual average stats: 3.2
+Derrick White average predicted stats: 3.986791215554457
+Derrick White actual average stats: 4.3
+Lamar Stevens average predicted stats: 0.46278185623240764
+Lamar Stevens actual average stats: 0.4
+
 Stat: trb
-Best weight alpha found: 417
-Best feature alpha found: 8
-Best opposing team alpha found: 119
-Nemanja Bjelica average predicted stats: 3.9076939838400007
-Nemanja Bjelica actual average stats: 4.8
-Chris Chiozza average predicted stats: 0.7583610522710542
-Chris Chiozza actual average stats: 1.0
-Stephen Curry average predicted stats: 4.801517158251042
-Stephen Curry actual average stats: 4.0
-Draymond Green average predicted stats: 6.6716040381847295
-Draymond Green actual average stats: 4.6
-Andre Iguodala average predicted stats: 3.5598581580246567
-Andre Iguodala actual average stats: 2.8
-Jonathan Kuminga average predicted stats: 4.038531156294278
-Jonathan Kuminga actual average stats: 4.0
-Damion Lee average predicted stats: 3.048961946215642
-Damion Lee actual average stats: 2.6
-Kevon Looney average predicted stats: 7.258917510295913
-Kevon Looney actual average stats: 5.0
-Moses Moody average predicted stats: 2.155163818778069
-Moses Moody actual average stats: 1.2
-Gary Payton II average predicted stats: 2.7355425057053067
-Gary Payton II actual average stats: 4.0
-Jordan Poole average predicted stats: 3.103768256864791
-Jordan Poole actual average stats: 4.6
-Otto Porter Jr. average predicted stats: 5.583252760209393
-Otto Porter Jr. actual average stats: 8.6
-Klay Thompson average predicted stats: 4.27902862478692
-Klay Thompson actual average stats: 3.6
-Juan Toscano-Anderson average predicted stats: 2.507272140002335
-Juan Toscano-Anderson actual average stats: 1.4
-Andrew Wiggins average predicted stats: 4.78129897756753
-Andrew Wiggins actual average stats: 4.0
+Best weight alpha found: 399
+Best feature alpha found: 9
+Best opposing team alpha found: 95
+Best inactive number found: 206
+Royce O'Neale average predicted stats: 5.57842907732231
+Royce O'Neale actual average stats: 5.2
+Rudy Gobert average predicted stats: 10.108767847644563
+Rudy Gobert actual average stats: 12.2
+Onyeka Okongwu average predicted stats: 6.157167210898969
+Onyeka Okongwu actual average stats: 6.9
+Robert Covington average predicted stats: 1.8714458478912313
+Robert Covington actual average stats: 2.8
+Thaddeus Young average predicted stats: 1.8255122983820526
+Thaddeus Young actual average stats: 1.8
+Udoka Azubuike average predicted stats: 2.252792173354993
+Udoka Azubuike actual average stats: 6.3
+Marvin Bagley III average predicted stats: 5.968436182646766
+Marvin Bagley III actual average stats: 5.3
+Jimmy Butler average predicted stats: 5.695370525766169
+Jimmy Butler actual average stats: 4.9
+Ricky Rubio average predicted stats: 2.7247870137718957
+Ricky Rubio actual average stats: 1.5
+Julius Randle average predicted stats: 7.858962978204923
+Julius Randle actual average stats: 7.1
+Precious Achiuwa average predicted stats: 4.540445963527704
+Precious Achiuwa actual average stats: 5.4
+Cole Anthony average predicted stats: 3.9799673187665796
+Cole Anthony actual average stats: 6.3
+Payton Pritchard average predicted stats: 1.2636469089051552
+Payton Pritchard actual average stats: 3.0
+Kevin Huerter average predicted stats: 2.4115625879320066
+Kevin Huerter actual average stats: 4.1
+Jordan Clarkson average predicted stats: 2.9370926972126012
+Jordan Clarkson actual average stats: 4.4
+Andrew Nembhard average predicted stats: 1.9864060261056935
+Andrew Nembhard actual average stats: 2.8
+Dillon Brooks average predicted stats: 3.431994589132048
+Dillon Brooks actual average stats: 3.7
+Nick Richards average predicted stats: 6.2497186944308885
+Nick Richards actual average stats: 9.2
+Malachi Flynn average predicted stats: 0.9865837024546652
+Malachi Flynn actual average stats: 1.1
+Luka Doncic average predicted stats: 6.569370440367594
+Luka Doncic actual average stats: 8.1
+Jalen Smith average predicted stats: 5.020647732417613
+Jalen Smith actual average stats: 6.1
+Max Strus average predicted stats: 2.0524697704761197
+Max Strus actual average stats: 2.2
+Malaki Branham average predicted stats: 3.8815088747161495
+Malaki Branham actual average stats: 3.6
+Anthony Lamb average predicted stats: 3.4033077044522697
+Anthony Lamb actual average stats: 3.5
+Zach Collins average predicted stats: 5.488926107954592
+Zach Collins actual average stats: 8.0
+Max Christie average predicted stats: 2.228627955399705
+Max Christie actual average stats: 0.6
+Gorgui Dieng average predicted stats: 1.4648319523978632
+Gorgui Dieng actual average stats: 5.2
+Jalen Williams average predicted stats: 5.411921172076703
+Jalen Williams actual average stats: 4.6
+Franz Wagner average predicted stats: 3.4615150295317436
+Franz Wagner actual average stats: 5.3
+Dean Wade average predicted stats: 3.038327436590355
+Dean Wade actual average stats: 2.4
+Wesley Matthews average predicted stats: 2.2893919477799853
+Wesley Matthews actual average stats: 2.0
+Zeke Nnaji average predicted stats: 2.4540885718284455
+Zeke Nnaji actual average stats: 3.7

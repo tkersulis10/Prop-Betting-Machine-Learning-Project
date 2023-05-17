@@ -7,7 +7,7 @@ from reinforcement_learning_model import run_model
 output_file = "reinforcement_learning_output.txt"
 stat_dict = {"pts": 18, "ast": 13, "trb": 12, "fg": 1,
             "3p": 4, "ft": 7, "stl": 14, "blk": 15, "tov": 16}
-hyperparameters_dict = {"pts": (148, 30, 9), "ast": (699, 29, 914), "trb": (417, 8, 119)}
+hyperparameters_dict = {"pts": (220, 15, 15, 100), "ast": (300, 10, 300, 100), "trb": (400, 10, 200, 200)}
 
 def run(player_name, stat_run_list):
     """
@@ -46,8 +46,8 @@ def run(player_name, stat_run_list):
     # output_string = ""
     output_list = []
     for stat in stat_run_list:
-        with open(output_file, "a") as file:
-            file.write("Stat: " + stat + "\n")
+        #with open(output_file, "a") as file:
+        #    file.write("Stat: " + stat + "\n")
         # output_string += "Stat: " + stat + "\n"
         curr_stat_list = []
         curr_stat_list.append("Stat: " + stat)
