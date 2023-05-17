@@ -60,3 +60,41 @@ QPushButton:focus {
   background-color: #0b5ed7;
   border: 3px solid #9ac3fe;
 }
+QPushButton:pressed {
+  background-color: #658eaf;
+  border: 3px solid #9ac3fe;
+}
+QPushButton#modelbutton {
+  background-color: #658eaf;
+  color: #fff;
+  font-weight: 600;
+  border-radius: 8px;
+  border: 2px solid #658eaf;
+  padding: 5px 15px;
+  margin-top: 10px;
+  outline: 0px;
+}
+QPushButton#modelbutton:hover,
+QPushButton#modelbutton:focus {
+  background-color: #658eaf;
+  border: 3px solid #9ac3fe;
+}
+QPushButton#modelbutton:pressed {
+  background-color: #0d6efd;
+  border: 3px solid #9ac3fe;
+}
+QPushButton#enterbutton {
+  background-color: #0e801e;
+  color: #fff;
+  font-weight: 600;
+  border-radius: 8px;
+  border: 2px solid #0e801e;
+  padding: 5px 15px;
+  margin-top: 10px;
+  outline: 0px;
+}
+QPushButton#enterbutton:hover,
+QPushButton#enterbutton:focus {
+  background-color: #0e801e;
+  border: 3px solid #88c885;
+}
