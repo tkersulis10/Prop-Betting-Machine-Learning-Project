@@ -1,0 +1,135 @@
+Features
+
+[PRIORS] - scraped from https://projects.fivethirtyeight.com/2022-nba-player-projections/klay-thompson/
+point guard (0 or 1)
+shooting guard (0 or 1)
+small forward (0 or 1)
+power forwards (0 or 1)
+center (0 or 1)
+experience in years
+age
+height in inches
+weight in pounds
+draft position
+true shooting%
+free throw%
+Usage %
+3pt frequency
+ft frequency
+assist %
+turnover %
+rebound %
+block %
+steal %
+defensive +/-
+ppg from most recent season
+
+[SEASON STATS]
+of games played
+assists average
+minutes played average
+20% percentile assists
+40% percentile assists
+50% percentile assists
+60% percentile assists
+80% percentile assists
+20% percentile assist%
+40% percentile assist%
+50% percentile assist%
+60% percentile assist%
+80% percentile assist%
+20% percentile usage
+40% percentile usage
+50% percentile usage
+60% percentile usage
+80% percentile usage
+20% percentile minutes played
+40% percentile minutes played
+50% percentile minutes played
+60% percentile minutes played
+80% percentile minutes played
+
+[RECENT FORM 1] - 1 game sliding window
+assists
+assist%
+usage
+mp
+
+[RECENT FORM 2] - 2 game sliding window
+1st least assists
+2nd least assists
+1st least assist%
+2nd least assist%
+1st least usage
+2nd least usage
+1st least mp
+2nd least mp
+
+[RECENT FORM 3] - 4 game sliding window
+4 games available (0 or 1)
+1st least assists
+2nd least assists
+3rd least assists
+4th least assists
+1st least assist%
+2nd least assist%
+3rd least assist%
+4th least assist%
+1st least usage
+2nd least usage
+3rd least usage
+4th least usage
+1st least mp
+2nd least mp
+3rd least mp
+4th least mp
+
+[RECENT FORM 4] - 8 game sliding window
+8 games available (0 or 1)
+1st least assists
+2nd least assists
+3rd least assists
+4th least assists
+5th least assists
+6th least assists
+7th least assists
+8th least assists
+1st least assist%
+2nd least assist%
+3rd least assist%
+4th least assist%
+5th least assist%
+6th least assist%
+7th least assist%
+8th least assist%
+1st least usage
+2nd least usage
+3rd least usage
+4th least usage
+5th least usage
+6th least usage
+7th least usage
+8th least usage
+1st least mp
+2nd least mp
+3rd least mp
+4th least mp
+5th least mp
+6th least mp
+7th least mp
+8th least mp
+
+[GAME STATE] TODO: add team pace metrics, and foul/free throw metrics
+home or road (0 or 1)
+team game number
+opponent game number
+team offensive rating season
+team offensive rating last 8 games
+team defensive rating season
+team defensive rating last 8 games
+opponent offensive rating season
+opponent offensive rating last 8 games
+opponent defensive rating season
+opponent defensive rating last 8 games
+
+TODO: [INJURY STATE] which teammates are injured, which teammates are coming back from injury, and how that affects this player's usage, relative to their historical stats

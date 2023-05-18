@@ -79,7 +79,6 @@ free throw%
 ft frequency
 
 [RECENT FORM 3] - 4 game sliding window
-4 games available (0 or 1)
 1st least points
 2nd least points
 3rd least points
@@ -102,7 +101,6 @@ free throw%
 ft frequency
 
 [RECENT FORM 4] - 8 game sliding window
-8 games available (0 or 1)
 1st least points
 2nd least points
 3rd least points
