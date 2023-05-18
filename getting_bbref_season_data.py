@@ -3,6 +3,7 @@ from bs4 import BeautifulSoup
 import requests
 from unidecode import unidecode
 import json
+import pickle
 
 player_identifier_to_object = {}
 
@@ -57,7 +58,11 @@ class Season:
             games_so_far = list(self.games.keys())
             team = Team(self.year, team_name)
             url = "https://www.basketball-reference.com/teams/" + team_name + "/" + str(self.year) + ".html"
-            soup = BeautifulSoup(make_request(url).content, "html.parser")
+            try:
+                soup = BeautifulSoup(make_request(url).content, "html.parser")
+            except:
+                print("1")
+                print(url)
 
             # Collect players data
             players = soup.find(id="div_roster").find("tbody").find_all("tr")
@@ -85,7 +90,11 @@ class Season:
             print("starting to collect games")
             games_url = url = "https://www.basketball-reference.com/teams/" + team_name + "/" + str(self.year) + "_games.html"
             print(games_url)
-            soup = BeautifulSoup(make_request(games_url).content, "html.parser")
+            try:
+                soup = BeautifulSoup(make_request(games_url).content, "html.parser")
+            except:
+                print("2")
+                print(games_url)
             games = soup.find(id="div_games").find("tbody").find_all("tr")
             # print(len(games))
             
@@ -106,7 +115,12 @@ class Season:
                 home = False
                 if team_name in game_url:
                     home = True
-                game_soup = BeautifulSoup(make_request(game_url).content, "html.parser")
+                try:
+                    game_soup = BeautifulSoup(make_request(game_url).content, "html.parser")
+                except Exception as e:
+                    print("3")
+                    print(str(e))
+                    print(game_url)
                 basic_stats_table = game_soup.find(id="box-"+team_name+"-game-basic")
                 basic_stats = []
                 stats = basic_stats_table.find("thead").find_all("tr")[-1].find_all("th")[1:]
@@ -274,10 +288,22 @@ class Player:
 # with open('s2020.pkl', 'wb') as outp:
 #     pickle.dump(s2020, outp, pickle.HIGHEST_PROTOCOL)
 
-# s2021 = Season(2021)
-# s2021.getTeams()
-# with open('s2021.pkl', 'wb') as outp:
-#     pickle.dump(s2021, outp, pickle.HIGHEST_PROTOCOL)
+# with open('players.pkl', 'rb') as inp:
+#     players = pickle.load(inp)
+
+# print(players['KlayThompson2023GSW'].most_recent_valid_season)
+
+# with open('s2023.pkl', 'rb') as inp:
+#     s2023 = pickle.load(inp)
+# print(s2023.teams['GSW'].games[80].home_team_game_no)
+
+# s2020 = Season(2020)
+# s2020.getTeams()
+# with open('s2020.pkl', 'wb') as outp:
+#     pickle.dump(s2020, outp, pickle.HIGHEST_PROTOCOL)
+
+# with open('players.pkl', 'wb') as outp:
+#     pickle.dump(player_identifier_to_object, outp, pickle.HIGHEST_PROTOCOL)
 
 # s2022 = Season(2022)
 # s2022.getTeams()

@@ -1,0 +1,175 @@
+Nicolas Claxton error: 'NoneType' object has no attribute 'find'Traceback (most recent call last):
+  File "/Users/tanaymenezes/Desktop/aiprac/Prop-Betting-Machine-Learning-Project/svm.py", line 387, in collect_player_priors
+    player_hed = player_table.find("div", class_="player-hed")
+AttributeError: 'NoneType' object has no attribute 'find'
+
+Kobi Simmons error: 'NoneType' object has no attribute 'find'Traceback (most recent call last):
+  File "/Users/tanaymenezes/Desktop/aiprac/Prop-Betting-Machine-Learning-Project/svm.py", line 387, in collect_player_priors
+    bio_stats = player_hed.find("div", class_="left").find("ul", class_="stats").findAll("li")
+AttributeError: 'NoneType' object has no attribute 'find'
+
+Xavier Sneed error: no prior ppg data for Xavier SneedTraceback (most recent call last):
+  File "/Users/tanaymenezes/Desktop/aiprac/Prop-Betting-Machine-Learning-Project/svm.py", line 436, in collect_player_priors
+    player.most_recent_valid_season = prior_map
+Exception: no prior ppg data for Xavier Sneed
+
+Marko Simonovic error: no prior ppg data for Marko SimonovicTraceback (most recent call last):
+  File "/Users/tanaymenezes/Desktop/aiprac/Prop-Betting-Machine-Learning-Project/svm.py", line 436, in collect_player_priors
+    player.most_recent_valid_season = prior_map
+Exception: no prior ppg data for Marko Simonovic
+
+Mamadi Diakite error: no prior ppg data for Mamadi DiakiteTraceback (most recent call last):
+  File "/Users/tanaymenezes/Desktop/aiprac/Prop-Betting-Machine-Learning-Project/svm.py", line 436, in collect_player_priors
+    player.most_recent_valid_season = prior_map
+Exception: no prior ppg data for Mamadi Diakite
+
+McKinley Wright IV error: no prior ppg data for McKinley Wright IVTraceback (most recent call last):
+  File "/Users/tanaymenezes/Desktop/aiprac/Prop-Betting-Machine-Learning-Project/svm.py", line 436, in collect_player_priors
+    player.most_recent_valid_season = prior_map
+Exception: no prior ppg data for McKinley Wright IV
+
+Isaiah Livers error: no prior ppg data for Isaiah LiversTraceback (most recent call last):
+  File "/Users/tanaymenezes/Desktop/aiprac/Prop-Betting-Machine-Learning-Project/svm.py", line 436, in collect_player_priors
+    player.most_recent_valid_season = prior_map
+Exception: no prior ppg data for Isaiah Livers
+
+Eugene Omoruyi error: no prior ppg data for Eugene OmoruyiTraceback (most recent call last):
+  File "/Users/tanaymenezes/Desktop/aiprac/Prop-Betting-Machine-Learning-Project/svm.py", line 436, in collect_player_priors
+    player.most_recent_valid_season = prior_map
+Exception: no prior ppg data for Eugene Omoruyi
+
+Gabe York error: no prior ppg data for Gabe YorkTraceback (most recent call last):
+  File "/Users/tanaymenezes/Desktop/aiprac/Prop-Betting-Machine-Learning-Project/svm.py", line 436, in collect_player_priors
+    player.most_recent_valid_season = prior_map
+Exception: no prior ppg data for Gabe York
+
+Nahshon Hyland error: 'NoneType' object has no attribute 'find'Traceback (most recent call last):
+  File "/Users/tanaymenezes/Desktop/aiprac/Prop-Betting-Machine-Learning-Project/svm.py", line 387, in collect_player_priors
+    bio_stats = player_hed.find("div", class_="left").find("ul", class_="stats").findAll("li")
+AttributeError: 'NoneType' object has no attribute 'find'
+
+Xavier Moon error: no prior ppg data for Xavier MoonTraceback (most recent call last):
+  File "/Users/tanaymenezes/Desktop/aiprac/Prop-Betting-Machine-Learning-Project/svm.py", line 436, in collect_player_priors
+    player.most_recent_valid_season = prior_map
+Exception: no prior ppg data for Xavier Moon
+
+Xavier Tillman Sr. error: 'NoneType' object has no attribute 'find'Traceback (most recent call last):
+  File "/Users/tanaymenezes/Desktop/aiprac/Prop-Betting-Machine-Learning-Project/svm.py", line 387, in collect_player_priors
+    bio_stats = player_hed.find("div", class_="left").find("ul", class_="stats").findAll("li")
+AttributeError: 'NoneType' object has no attribute 'find'
+
+Jacob Gilyard error: 'NoneType' object has no attribute 'find'Traceback (most recent call last):
+  File "/Users/tanaymenezes/Desktop/aiprac/Prop-Betting-Machine-Learning-Project/svm.py", line 387, in collect_player_priors
+    bio_stats = player_hed.find("div", class_="left").find("ul", class_="stats").findAll("li")
+AttributeError: 'NoneType' object has no attribute 'find'
+
+Haywood Highsmith error: no prior ppg data for Haywood HighsmithTraceback (most recent call last):
+  File "/Users/tanaymenezes/Desktop/aiprac/Prop-Betting-Machine-Learning-Project/svm.py", line 436, in collect_player_priors
+    player.most_recent_valid_season = prior_map
+Exception: no prior ppg data for Haywood Highsmith
+
+Nikola Jović error: no prior ppg data for Nikola JovićTraceback (most recent call last):
+  File "/Users/tanaymenezes/Desktop/aiprac/Prop-Betting-Machine-Learning-Project/svm.py", line 436, in collect_player_priors
+    player.most_recent_valid_season = prior_map
+Exception: no prior ppg data for Nikola Jović
+
+Udonis Haslem error: no prior ppg data for Udonis HaslemTraceback (most recent call last):
+  File "/Users/tanaymenezes/Desktop/aiprac/Prop-Betting-Machine-Learning-Project/svm.py", line 436, in collect_player_priors
+    player.most_recent_valid_season = prior_map
+Exception: no prior ppg data for Udonis Haslem
+
+Lindell Wigginton error: no prior ppg data for Lindell WiggintonTraceback (most recent call last):
+  File "/Users/tanaymenezes/Desktop/aiprac/Prop-Betting-Machine-Learning-Project/svm.py", line 436, in collect_player_priors
+    player.most_recent_valid_season = prior_map
+Exception: no prior ppg data for Lindell Wigginton
+
+Matt Ryan error: no prior ppg data for Matt RyanTraceback (most recent call last):
+  File "/Users/tanaymenezes/Desktop/aiprac/Prop-Betting-Machine-Learning-Project/svm.py", line 436, in collect_player_priors
+    player.most_recent_valid_season = prior_map
+Exception: no prior ppg data for Matt Ryan
+
+Ousmane Dieng error: no prior ppg data for Ousmane DiengTraceback (most recent call last):
+  File "/Users/tanaymenezes/Desktop/aiprac/Prop-Betting-Machine-Learning-Project/svm.py", line 436, in collect_player_priors
+    player.most_recent_valid_season = prior_map
+Exception: no prior ppg data for Ousmane Dieng
+
+Jay Scrubb error: no prior ppg data for Jay ScrubbTraceback (most recent call last):
+  File "/Users/tanaymenezes/Desktop/aiprac/Prop-Betting-Machine-Learning-Project/svm.py", line 436, in collect_player_priors
+    player.most_recent_valid_season = prior_map
+Exception: no prior ppg data for Jay Scrubb
+
+Jaden Springer error: no prior ppg data for Jaden SpringerTraceback (most recent call last):
+  File "/Users/tanaymenezes/Desktop/aiprac/Prop-Betting-Machine-Learning-Project/svm.py", line 436, in collect_player_priors
+    player.most_recent_valid_season = prior_map
+Exception: no prior ppg data for Jaden Springer
+
+Mac McClung error: no prior ppg data for Mac McClungTraceback (most recent call last):
+  File "/Users/tanaymenezes/Desktop/aiprac/Prop-Betting-Machine-Learning-Project/svm.py", line 436, in collect_player_priors
+    player.most_recent_valid_season = prior_map
+Exception: no prior ppg data for Mac McClung
+
+Louis King error: no prior ppg data for Louis KingTraceback (most recent call last):
+  File "/Users/tanaymenezes/Desktop/aiprac/Prop-Betting-Machine-Learning-Project/svm.py", line 436, in collect_player_priors
+    player.most_recent_valid_season = prior_map
+Exception: no prior ppg data for Louis King
+
+Jeenathan Williams error: 'NoneType' object has no attribute 'find'Traceback (most recent call last):
+  File "/Users/tanaymenezes/Desktop/aiprac/Prop-Betting-Machine-Learning-Project/svm.py", line 387, in collect_player_priors
+    bio_stats = player_hed.find("div", class_="left").find("ul", class_="stats").findAll("li")
+AttributeError: 'NoneType' object has no attribute 'find'
+
+Chance Comanche error: 'NoneType' object has no attribute 'find'Traceback (most recent call last):
+  File "/Users/tanaymenezes/Desktop/aiprac/Prop-Betting-Machine-Learning-Project/svm.py", line 387, in collect_player_priors
+    bio_stats = player_hed.find("div", class_="left").find("ul", class_="stats").findAll("li")
+AttributeError: 'NoneType' object has no attribute 'find'
+
+Ibou Badji error: 'NoneType' object has no attribute 'find'Traceback (most recent call last):
+  File "/Users/tanaymenezes/Desktop/aiprac/Prop-Betting-Machine-Learning-Project/svm.py", line 387, in collect_player_priors
+    bio_stats = player_hed.find("div", class_="left").find("ul", class_="stats").findAll("li")
+AttributeError: 'NoneType' object has no attribute 'find'
+
+Neemias Queta error: no prior ppg data for Neemias QuetaTraceback (most recent call last):
+  File "/Users/tanaymenezes/Desktop/aiprac/Prop-Betting-Machine-Learning-Project/svm.py", line 436, in collect_player_priors
+    player.most_recent_valid_season = prior_map
+Exception: no prior ppg data for Neemias Queta
+
+Jeff Dowtin error: no prior ppg data for Jeff DowtinTraceback (most recent call last):
+  File "/Users/tanaymenezes/Desktop/aiprac/Prop-Betting-Machine-Learning-Project/svm.py", line 436, in collect_player_priors
+    player.most_recent_valid_season = prior_map
+Exception: no prior ppg data for Jeff Dowtin
+
+Udoka Azubuike error: no prior ppg data for Udoka AzubuikeTraceback (most recent call last):
+  File "/Users/tanaymenezes/Desktop/aiprac/Prop-Betting-Machine-Learning-Project/svm.py", line 436, in collect_player_priors
+    player.most_recent_valid_season = prior_map
+Exception: no prior ppg data for Udoka Azubuike
+
+Micah Potter error: no prior ppg data for Micah PotterTraceback (most recent call last):
+  File "/Users/tanaymenezes/Desktop/aiprac/Prop-Betting-Machine-Learning-Project/svm.py", line 436, in collect_player_priors
+    player.most_recent_valid_season = prior_map
+Exception: no prior ppg data for Micah Potter
+
+Vernon Carey Jr. error: no prior ppg data for Vernon Carey Jr.Traceback (most recent call last):
+  File "/Users/tanaymenezes/Desktop/aiprac/Prop-Betting-Machine-Learning-Project/svm.py", line 436, in collect_player_priors
+    player.most_recent_valid_season = prior_map
+Exception: no prior ppg data for Vernon Carey Jr.
+
+Jordan Goodwin error: no prior ppg data for Jordan GoodwinTraceback (most recent call last):
+  File "/Users/tanaymenezes/Desktop/aiprac/Prop-Betting-Machine-Learning-Project/svm.py", line 436, in collect_player_priors
+    player.most_recent_valid_season = prior_map
+Exception: no prior ppg data for Jordan Goodwin
+
+Xavier Cooks error: 'NoneType' object has no attribute 'find'Traceback (most recent call last):
+  File "/Users/tanaymenezes/Desktop/aiprac/Prop-Betting-Machine-Learning-Project/svm.py", line 387, in collect_player_priors
+    bio_stats = player_hed.find("div", class_="left").find("ul", class_="stats").findAll("li")
+AttributeError: 'NoneType' object has no attribute 'find'
+
+Jay Huff error: no prior ppg data for Jay HuffTraceback (most recent call last):
+  File "/Users/tanaymenezes/Desktop/aiprac/Prop-Betting-Machine-Learning-Project/svm.py", line 436, in collect_player_priors
+    player.most_recent_valid_season = prior_map
+Exception: no prior ppg data for Jay Huff
+
+Isaiah Todd error: no prior ppg data for Isaiah ToddTraceback (most recent call last):
+  File "/Users/tanaymenezes/Desktop/aiprac/Prop-Betting-Machine-Learning-Project/svm.py", line 436, in collect_player_priors
+    player.most_recent_valid_season = prior_map
+Exception: no prior ppg data for Isaiah Todd
+

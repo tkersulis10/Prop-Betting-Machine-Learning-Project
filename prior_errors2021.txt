@@ -1,0 +1,290 @@
+Tremont Waters error: no prior ppg data for Tremont WatersTraceback (most recent call last):
+  File "/Users/tanaymenezes/Desktop/aiprac/Prop-Betting-Machine-Learning-Project/svm.py", line 438, in collect_player_priors
+    raise Exception("no prior ppg data for " + player_full_name)
+Exception: no prior ppg data for Tremont Waters
+
+Nicolas Claxton error: no prior ppg data for Nicolas ClaxtonTraceback (most recent call last):
+  File "/Users/tanaymenezes/Desktop/aiprac/Prop-Betting-Machine-Learning-Project/svm.py", line 438, in collect_player_priors
+    raise Exception("no prior ppg data for " + player_full_name)
+Exception: no prior ppg data for Nicolas Claxton
+
+Alize Johnson error: no prior ppg data for Alize JohnsonTraceback (most recent call last):
+  File "/Users/tanaymenezes/Desktop/aiprac/Prop-Betting-Machine-Learning-Project/svm.py", line 438, in collect_player_priors
+    raise Exception("no prior ppg data for " + player_full_name)
+Exception: no prior ppg data for Alize Johnson
+
+LaMelo Ball error: no prior ppg data for LaMelo BallTraceback (most recent call last):
+  File "/Users/tanaymenezes/Desktop/aiprac/Prop-Betting-Machine-Learning-Project/svm.py", line 438, in collect_player_priors
+    raise Exception("no prior ppg data for " + player_full_name)
+Exception: no prior ppg data for LaMelo Ball
+
+Caleb Martin error: no prior ppg data for Caleb MartinTraceback (most recent call last):
+  File "/Users/tanaymenezes/Desktop/aiprac/Prop-Betting-Machine-Learning-Project/svm.py", line 438, in collect_player_priors
+    raise Exception("no prior ppg data for " + player_full_name)
+Exception: no prior ppg data for Caleb Martin
+
+Jalen McDaniels error: no prior ppg data for Jalen McDanielsTraceback (most recent call last):
+  File "/Users/tanaymenezes/Desktop/aiprac/Prop-Betting-Machine-Learning-Project/svm.py", line 438, in collect_player_priors
+    raise Exception("no prior ppg data for " + player_full_name)
+Exception: no prior ppg data for Jalen McDaniels
+
+Adam Mokoka error: no prior ppg data for Adam MokokaTraceback (most recent call last):
+  File "/Users/tanaymenezes/Desktop/aiprac/Prop-Betting-Machine-Learning-Project/svm.py", line 438, in collect_player_priors
+    raise Exception("no prior ppg data for " + player_full_name)
+Exception: no prior ppg data for Adam Mokoka
+
+Jeremiah Martin error: no prior ppg data for Jeremiah MartinTraceback (most recent call last):
+  File "/Users/tanaymenezes/Desktop/aiprac/Prop-Betting-Machine-Learning-Project/svm.py", line 438, in collect_player_priors
+    raise Exception("no prior ppg data for " + player_full_name)
+Exception: no prior ppg data for Jeremiah Martin
+
+Anderson Varejão error: no prior ppg data for Anderson VarejãoTraceback (most recent call last):
+  File "/Users/tanaymenezes/Desktop/aiprac/Prop-Betting-Machine-Learning-Project/svm.py", line 438, in collect_player_priors
+    raise Exception("no prior ppg data for " + player_full_name)
+Exception: no prior ppg data for Anderson Varejão
+
+Bol Bol error: no prior ppg data for Bol BolTraceback (most recent call last):
+  File "/Users/tanaymenezes/Desktop/aiprac/Prop-Betting-Machine-Learning-Project/svm.py", line 438, in collect_player_priors
+    raise Exception("no prior ppg data for " + player_full_name)
+Exception: no prior ppg data for Bol Bol
+
+R.J. Hampton error: no prior ppg data for R.J. HamptonTraceback (most recent call last):
+  File "/Users/tanaymenezes/Desktop/aiprac/Prop-Betting-Machine-Learning-Project/svm.py", line 438, in collect_player_priors
+    raise Exception("no prior ppg data for " + player_full_name)
+Exception: no prior ppg data for R.J. Hampton
+
+Killian Hayes error: no prior ppg data for Killian HayesTraceback (most recent call last):
+  File "/Users/tanaymenezes/Desktop/aiprac/Prop-Betting-Machine-Learning-Project/svm.py", line 438, in collect_player_priors
+    raise Exception("no prior ppg data for " + player_full_name)
+Exception: no prior ppg data for Killian Hayes
+
+Deividas Sirvydis error: no prior ppg data for Deividas SirvydisTraceback (most recent call last):
+  File "/Users/tanaymenezes/Desktop/aiprac/Prop-Betting-Machine-Learning-Project/svm.py", line 438, in collect_player_priors
+    raise Exception("no prior ppg data for " + player_full_name)
+Exception: no prior ppg data for Deividas Sirvydis
+
+Mychal Mulder error: no prior ppg data for Mychal MulderTraceback (most recent call last):
+  File "/Users/tanaymenezes/Desktop/aiprac/Prop-Betting-Machine-Learning-Project/svm.py", line 438, in collect_player_priors
+    raise Exception("no prior ppg data for " + player_full_name)
+Exception: no prior ppg data for Mychal Mulder
+
+Alen Smailagić error: no prior ppg data for Alen SmailagićTraceback (most recent call last):
+  File "/Users/tanaymenezes/Desktop/aiprac/Prop-Betting-Machine-Learning-Project/svm.py", line 438, in collect_player_priors
+    raise Exception("no prior ppg data for " + player_full_name)
+Exception: no prior ppg data for Alen Smailagić
+
+Juan Toscano-Anderson error: no prior ppg data for Juan Toscano-AndersonTraceback (most recent call last):
+  File "/Users/tanaymenezes/Desktop/aiprac/Prop-Betting-Machine-Learning-Project/svm.py", line 438, in collect_player_priors
+    raise Exception("no prior ppg data for " + player_full_name)
+Exception: no prior ppg data for Juan Toscano-Anderson
+
+Armoni Brooks error: 'NoneType' object has no attribute 'find'Traceback (most recent call last):
+  File "/Users/tanaymenezes/Desktop/aiprac/Prop-Betting-Machine-Learning-Project/svm.py", line 389, in collect_player_priors
+    player_hed = player_table.find("div", class_="player-hed")
+AttributeError: 'NoneType' object has no attribute 'find'
+
+DaQuan Jeffries error: no prior ppg data for DaQuan JeffriesTraceback (most recent call last):
+  File "/Users/tanaymenezes/Desktop/aiprac/Prop-Betting-Machine-Learning-Project/svm.py", line 438, in collect_player_priors
+    raise Exception("no prior ppg data for " + player_full_name)
+Exception: no prior ppg data for DaQuan Jeffries
+
+Cameron Oliver error: 'NoneType' object has no attribute 'find'Traceback (most recent call last):
+  File "/Users/tanaymenezes/Desktop/aiprac/Prop-Betting-Machine-Learning-Project/svm.py", line 389, in collect_player_priors
+    player_hed = player_table.find("div", class_="player-hed")
+AttributeError: 'NoneType' object has no attribute 'find'
+
+Cameron Reynolds error: no prior ppg data for Cameron ReynoldsTraceback (most recent call last):
+  File "/Users/tanaymenezes/Desktop/aiprac/Prop-Betting-Machine-Learning-Project/svm.py", line 438, in collect_player_priors
+    raise Exception("no prior ppg data for " + player_full_name)
+Exception: no prior ppg data for Cameron Reynolds
+
+Ray Spalding error: no prior ppg data for Ray SpaldingTraceback (most recent call last):
+  File "/Users/tanaymenezes/Desktop/aiprac/Prop-Betting-Machine-Learning-Project/svm.py", line 438, in collect_player_priors
+    raise Exception("no prior ppg data for " + player_full_name)
+Exception: no prior ppg data for Ray Spalding
+
+Brian Bowen error: 'NoneType' object has no attribute 'find'Traceback (most recent call last):
+  File "/Users/tanaymenezes/Desktop/aiprac/Prop-Betting-Machine-Learning-Project/svm.py", line 389, in collect_player_priors
+    player_hed = player_table.find("div", class_="player-hed")
+AttributeError: 'NoneType' object has no attribute 'find'
+
+Oshae Brissett error: no prior ppg data for Oshae BrissettTraceback (most recent call last):
+  File "/Users/tanaymenezes/Desktop/aiprac/Prop-Betting-Machine-Learning-Project/svm.py", line 438, in collect_player_priors
+    raise Exception("no prior ppg data for " + player_full_name)
+Exception: no prior ppg data for Oshae Brissett
+
+Amir Coffey error: no prior ppg data for Amir CoffeyTraceback (most recent call last):
+  File "/Users/tanaymenezes/Desktop/aiprac/Prop-Betting-Machine-Learning-Project/svm.py", line 438, in collect_player_priors
+    raise Exception("no prior ppg data for " + player_full_name)
+Exception: no prior ppg data for Amir Coffey
+
+Marcus Morris error: 'NoneType' object has no attribute 'find'Traceback (most recent call last):
+  File "/Users/tanaymenezes/Desktop/aiprac/Prop-Betting-Machine-Learning-Project/svm.py", line 389, in collect_player_priors
+    player_hed = player_table.find("div", class_="player-hed")
+AttributeError: 'NoneType' object has no attribute 'find'
+
+Talen Horton-Tucker error: no prior ppg data for Talen Horton-TuckerTraceback (most recent call last):
+  File "/Users/tanaymenezes/Desktop/aiprac/Prop-Betting-Machine-Learning-Project/svm.py", line 438, in collect_player_priors
+    raise Exception("no prior ppg data for " + player_full_name)
+Exception: no prior ppg data for Talen Horton-Tucker
+
+John Konchar error: no prior ppg data for John KoncharTraceback (most recent call last):
+  File "/Users/tanaymenezes/Desktop/aiprac/Prop-Betting-Machine-Learning-Project/svm.py", line 438, in collect_player_priors
+    raise Exception("no prior ppg data for " + player_full_name)
+Exception: no prior ppg data for John Konchar
+
+Udonis Haslem error: no prior ppg data for Udonis HaslemTraceback (most recent call last):
+  File "/Users/tanaymenezes/Desktop/aiprac/Prop-Betting-Machine-Learning-Project/svm.py", line 438, in collect_player_priors
+    raise Exception("no prior ppg data for " + player_full_name)
+Exception: no prior ppg data for Udonis Haslem
+
+Gabe Vincent error: no prior ppg data for Gabe VincentTraceback (most recent call last):
+  File "/Users/tanaymenezes/Desktop/aiprac/Prop-Betting-Machine-Learning-Project/svm.py", line 438, in collect_player_priors
+    raise Exception("no prior ppg data for " + player_full_name)
+Exception: no prior ppg data for Gabe Vincent
+
+Elijah Bryant error: 'NoneType' object has no attribute 'find'Traceback (most recent call last):
+  File "/Users/tanaymenezes/Desktop/aiprac/Prop-Betting-Machine-Learning-Project/svm.py", line 389, in collect_player_priors
+    player_hed = player_table.find("div", class_="player-hed")
+AttributeError: 'NoneType' object has no attribute 'find'
+
+Juancho Hernangómez error: 'NoneType' object has no attribute 'find'Traceback (most recent call last):
+  File "/Users/tanaymenezes/Desktop/aiprac/Prop-Betting-Machine-Learning-Project/svm.py", line 389, in collect_player_priors
+    player_hed = player_table.find("div", class_="player-hed")
+AttributeError: 'NoneType' object has no attribute 'find'
+
+Jaylen Nowell error: no prior ppg data for Jaylen NowellTraceback (most recent call last):
+  File "/Users/tanaymenezes/Desktop/aiprac/Prop-Betting-Machine-Learning-Project/svm.py", line 438, in collect_player_priors
+    raise Exception("no prior ppg data for " + player_full_name)
+Exception: no prior ppg data for Jaylen Nowell
+
+Jarred Vanderbilt error: no prior ppg data for Jarred VanderbiltTraceback (most recent call last):
+  File "/Users/tanaymenezes/Desktop/aiprac/Prop-Betting-Machine-Learning-Project/svm.py", line 438, in collect_player_priors
+    raise Exception("no prior ppg data for " + player_full_name)
+Exception: no prior ppg data for Jarred Vanderbilt
+
+Didi Louzada error: 'NoneType' object has no attribute 'find'Traceback (most recent call last):
+  File "/Users/tanaymenezes/Desktop/aiprac/Prop-Betting-Machine-Learning-Project/svm.py", line 389, in collect_player_priors
+    player_hed = player_table.find("div", class_="player-hed")
+AttributeError: 'NoneType' object has no attribute 'find'
+
+James Nunnally error: no prior ppg data for James NunnallyTraceback (most recent call last):
+  File "/Users/tanaymenezes/Desktop/aiprac/Prop-Betting-Machine-Learning-Project/svm.py", line 438, in collect_player_priors
+    raise Exception("no prior ppg data for " + player_full_name)
+Exception: no prior ppg data for James Nunnally
+
+Kevin Knox error: 'NoneType' object has no attribute 'find'Traceback (most recent call last):
+  File "/Users/tanaymenezes/Desktop/aiprac/Prop-Betting-Machine-Learning-Project/svm.py", line 389, in collect_player_priors
+    player_hed = player_table.find("div", class_="player-hed")
+AttributeError: 'NoneType' object has no attribute 'find'
+
+Charlie Brown Jr. error: 'NoneType' object has no attribute 'find'Traceback (most recent call last):
+  File "/Users/tanaymenezes/Desktop/aiprac/Prop-Betting-Machine-Learning-Project/svm.py", line 389, in collect_player_priors
+    player_hed = player_table.find("div", class_="player-hed")
+AttributeError: 'NoneType' object has no attribute 'find'
+
+Gabriel Deck error: 'NoneType' object has no attribute 'find'Traceback (most recent call last):
+  File "/Users/tanaymenezes/Desktop/aiprac/Prop-Betting-Machine-Learning-Project/svm.py", line 389, in collect_player_priors
+    player_hed = player_table.find("div", class_="player-hed")
+AttributeError: 'NoneType' object has no attribute 'find'
+
+Jaylen Hoard error: no prior ppg data for Jaylen HoardTraceback (most recent call last):
+  File "/Users/tanaymenezes/Desktop/aiprac/Prop-Betting-Machine-Learning-Project/svm.py", line 438, in collect_player_priors
+    raise Exception("no prior ppg data for " + player_full_name)
+Exception: no prior ppg data for Jaylen Hoard
+
+Théo Maledon error: no prior ppg data for Théo MaledonTraceback (most recent call last):
+  File "/Users/tanaymenezes/Desktop/aiprac/Prop-Betting-Machine-Learning-Project/svm.py", line 438, in collect_player_priors
+    raise Exception("no prior ppg data for " + player_full_name)
+Exception: no prior ppg data for Théo Maledon
+
+Aleksej Pokusevski error: no prior ppg data for Aleksej PokusevskiTraceback (most recent call last):
+  File "/Users/tanaymenezes/Desktop/aiprac/Prop-Betting-Machine-Learning-Project/svm.py", line 438, in collect_player_priors
+    raise Exception("no prior ppg data for " + player_full_name)
+Exception: no prior ppg data for Aleksej Pokusevski
+
+Donta Hall error: no prior ppg data for Donta HallTraceback (most recent call last):
+  File "/Users/tanaymenezes/Desktop/aiprac/Prop-Betting-Machine-Learning-Project/svm.py", line 438, in collect_player_priors
+    raise Exception("no prior ppg data for " + player_full_name)
+Exception: no prior ppg data for Donta Hall
+
+R.J. Hampton error: no prior ppg data for R.J. HamptonTraceback (most recent call last):
+  File "/Users/tanaymenezes/Desktop/aiprac/Prop-Betting-Machine-Learning-Project/svm.py", line 438, in collect_player_priors
+    raise Exception("no prior ppg data for " + player_full_name)
+Exception: no prior ppg data for R.J. Hampton
+
+Enes Freedom error: 'NoneType' object has no attribute 'find'Traceback (most recent call last):
+  File "/Users/tanaymenezes/Desktop/aiprac/Prop-Betting-Machine-Learning-Project/svm.py", line 389, in collect_player_priors
+    player_hed = player_table.find("div", class_="player-hed")
+AttributeError: 'NoneType' object has no attribute 'find'
+
+Harry Giles error: 'NoneType' object has no attribute 'find'Traceback (most recent call last):
+  File "/Users/tanaymenezes/Desktop/aiprac/Prop-Betting-Machine-Learning-Project/svm.py", line 389, in collect_player_priors
+    player_hed = player_table.find("div", class_="player-hed")
+AttributeError: 'NoneType' object has no attribute 'find'
+
+Terence Davis error: 'NoneType' object has no attribute 'find'Traceback (most recent call last):
+  File "/Users/tanaymenezes/Desktop/aiprac/Prop-Betting-Machine-Learning-Project/svm.py", line 389, in collect_player_priors
+    player_hed = player_table.find("div", class_="player-hed")
+AttributeError: 'NoneType' object has no attribute 'find'
+
+DaQuan Jeffries error: no prior ppg data for DaQuan JeffriesTraceback (most recent call last):
+  File "/Users/tanaymenezes/Desktop/aiprac/Prop-Betting-Machine-Learning-Project/svm.py", line 438, in collect_player_priors
+    raise Exception("no prior ppg data for " + player_full_name)
+Exception: no prior ppg data for DaQuan Jeffries
+
+Keldon Johnson error: no prior ppg data for Keldon JohnsonTraceback (most recent call last):
+  File "/Users/tanaymenezes/Desktop/aiprac/Prop-Betting-Machine-Learning-Project/svm.py", line 438, in collect_player_priors
+    raise Exception("no prior ppg data for " + player_full_name)
+Exception: no prior ppg data for Keldon Johnson
+
+Cameron Reynolds error: no prior ppg data for Cameron ReynoldsTraceback (most recent call last):
+  File "/Users/tanaymenezes/Desktop/aiprac/Prop-Betting-Machine-Learning-Project/svm.py", line 438, in collect_player_priors
+    raise Exception("no prior ppg data for " + player_full_name)
+Exception: no prior ppg data for Cameron Reynolds
+
+Luka Šamanić error: no prior ppg data for Luka ŠamanićTraceback (most recent call last):
+  File "/Users/tanaymenezes/Desktop/aiprac/Prop-Betting-Machine-Learning-Project/svm.py", line 438, in collect_player_priors
+    raise Exception("no prior ppg data for " + player_full_name)
+Exception: no prior ppg data for Luka Šamanić
+
+Quinndary Weatherspoon error: no prior ppg data for Quinndary WeatherspoonTraceback (most recent call last):
+  File "/Users/tanaymenezes/Desktop/aiprac/Prop-Betting-Machine-Learning-Project/svm.py", line 438, in collect_player_priors
+    raise Exception("no prior ppg data for " + player_full_name)
+Exception: no prior ppg data for Quinndary Weatherspoon
+
+Terence Davis error: 'NoneType' object has no attribute 'find'Traceback (most recent call last):
+  File "/Users/tanaymenezes/Desktop/aiprac/Prop-Betting-Machine-Learning-Project/svm.py", line 389, in collect_player_priors
+    player_hed = player_table.find("div", class_="player-hed")
+AttributeError: 'NoneType' object has no attribute 'find'
+
+Yuta Watanabe error: no prior ppg data for Yuta WatanabeTraceback (most recent call last):
+  File "/Users/tanaymenezes/Desktop/aiprac/Prop-Betting-Machine-Learning-Project/svm.py", line 438, in collect_player_priors
+    raise Exception("no prior ppg data for " + player_full_name)
+Exception: no prior ppg data for Yuta Watanabe
+
+Paul Watson error: no prior ppg data for Paul WatsonTraceback (most recent call last):
+  File "/Users/tanaymenezes/Desktop/aiprac/Prop-Betting-Machine-Learning-Project/svm.py", line 438, in collect_player_priors
+    raise Exception("no prior ppg data for " + player_full_name)
+Exception: no prior ppg data for Paul Watson
+
+Jarrell Brantley error: no prior ppg data for Jarrell BrantleyTraceback (most recent call last):
+  File "/Users/tanaymenezes/Desktop/aiprac/Prop-Betting-Machine-Learning-Project/svm.py", line 438, in collect_player_priors
+    raise Exception("no prior ppg data for " + player_full_name)
+Exception: no prior ppg data for Jarrell Brantley
+
+Miye Oni error: no prior ppg data for Miye OniTraceback (most recent call last):
+  File "/Users/tanaymenezes/Desktop/aiprac/Prop-Betting-Machine-Learning-Project/svm.py", line 438, in collect_player_priors
+    raise Exception("no prior ppg data for " + player_full_name)
+Exception: no prior ppg data for Miye Oni
+
+Deni Avdija error: no prior ppg data for Deni AvdijaTraceback (most recent call last):
+  File "/Users/tanaymenezes/Desktop/aiprac/Prop-Betting-Machine-Learning-Project/svm.py", line 438, in collect_player_priors
+    raise Exception("no prior ppg data for " + player_full_name)
+Exception: no prior ppg data for Deni Avdija
+
+Garrison Mathews error: no prior ppg data for Garrison MathewsTraceback (most recent call last):
+  File "/Users/tanaymenezes/Desktop/aiprac/Prop-Betting-Machine-Learning-Project/svm.py", line 438, in collect_player_priors
+    raise Exception("no prior ppg data for " + player_full_name)
+Exception: no prior ppg data for Garrison Mathews
+
