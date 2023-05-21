@@ -9,3 +9,9 @@ python GUI.py
 
 Mac/Linux:
 python3 GUI.py
+
+For Project Report and Presentation Slides, see files:
+
+CS 4701 Project Report.pdf
+
+NBA Prop Bet Analyzer Slides.pdf
